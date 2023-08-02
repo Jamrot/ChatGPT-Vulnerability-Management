@@ -1,0 +1,2242 @@
+{
+    "AC": {
+        "down_timeout": {
+            "ground_truth": "1",
+            "function": "down_timeout",
+            "description": "acquire the semaphore within specified time attempt to acquire the semaphore if no more task are allowed to acquire the semaphore calling this function will put the task to sleep if the semaphore is not released within the specified number of jiffy this function return etime it return if the semaphore wa acquired struct semaphore sem the semaphore to be acquired long timeout how long to wait before failing",
+            "id": "down_timeout"
+        },
+        "__rt_mutex_start_proxy_lock": {
+            "ground_truth": "1",
+            "function": "__rt_mutex_start_proxy_lock",
+            "description": "start lock acquisition for another task start the rt mutex acquire it enqueues the waiter and doe deadlock detection it doe not wait see rt mutex wait proxy lock for that special api call for pi futex support note doe not remove the waiter on failure must either call rt mutex wait proxy lock or rt mutex cleanup proxy lock after this struct rt mutex lock the rt mutex to take struct rt mutex waiter waiter the pre initialized rt mutex waiter struct task struct task the task to prepare task blocked on lock acquired the lock for task caller should wake it up error",
+            "id": "__rt_mutex_start_proxy_lock"
+        },
+        "acpi_handle_printk": {
+            "ground_truth": "1",
+            "function": "acpi_handle_printk",
+            "description": "this function is called through acpi handle macro and print message with acpi prefix and object path this function acquires the global namespace mutex to obtain an object path in interrupt context it show the object path a const char level log level acpi handle handle acpi device handle const char fmt format string variable argument",
+            "id": "acpi_handle_printk"
+        },
+        "i40e_read_nvm_buffer": {
+            "ground_truth": "1",
+            "function": "i40e_read_nvm_buffer",
+            "description": "read shadow ram buffer and acquire lock if necessary read bit word data buffer from the sr using the i40e read nvm srrd method the buffer read is preceded by the nvm ownership take and followed by the release struct i40e hw hw pointer to the hw structure u16 offset offset of the shadow ram word to read u16 word in number of word to read out number of word actually read u16 data word read from the shadow ram",
+            "id": "i40e_read_nvm_buffer"
+        },
+        "msc_buffer_contig_alloc": {
+            "ground_truth": "1",
+            "function": "msc_buffer_contig_alloc",
+            "description": "allocate contiguous buffer for single mode this modifies msc base which requires msc buf mutex to serialize so the caller is expected to hold it struct msc msc msc device unsigned long size allocation size in byte on success errno otherwise",
+            "id": "msc_buffer_contig_alloc"
+        },
+        "ptp_find_pin": {
+            "ground_truth": "1",
+            "function": "ptp_find_pin",
+            "description": "obtain the pin index of given auxiliary function the caller must hold ptp clock pincfg mux driver do not have access to that mutex a ptp clock is an opaque type however the core code acquires the mutex before invoking the driver is ptp clock info enable callback and so driver may call this function from that context struct ptp clock ptp the clock obtained from ptp clock register enum ptp pin function func one of the ptp pin function enumerated value unsigned int chan the particular functional channel to find pin index in the range of zero to ptp clock cap pin or if the auxiliary function cannot be found",
+            "id": "ptp_find_pin"
+        },
+        "srcu_read_lock": {
+            "ground_truth": "1",
+            "function": "srcu_read_lock",
+            "description": "register new reader for an srcu protected structure enter an srcu read side critical section note that srcu read side critical section may be nested however it is illegal to call anything that wait on an srcu grace period for the same srcu struct whether directly or indirectly please note that one way to indirectly wait on an srcu grace period is to acquire mutex that is held elsewhere while calling synchronize srcu or synchronize srcu expedited note that srcu read lock and the matching srcu read unlock must occur in the same context for example it is illegal to invoke srcu read unlock in an irq handler if the matching srcu read lock wa invoked in process context struct srcu struct ssp srcu struct in which to register the new reader",
+            "id": "srcu_read_lock"
+        },
+        "mpt3sas_transport_port_remove": {
+            "ground_truth": "1",
+            "function": "mpt3sas_transport_port_remove",
+            "description": "remove port from the list removing object and freeing associated memory from the ioc sa port list struct mpt3sas adapter ioc per adapter object u64 sa address sa address of attached device u64 sa address parent sa address of parent expander or sa host this function will acquire ioc sa node lock",
+            "id": "mpt3sas_transport_port_remove"
+        },
+        "engine_init_common": {
+            "ground_truth": "1",
+            "function": "engine_init_common",
+            "description": "initialize cengine state which might require hw access initializes engine structure member shared between legacy and execlists submission mode which do require hardware access typcally done at later stage of submission mode specific engine setup return zero on success or an error code on failure struct intel engine c engine engine to initialize",
+            "id": "engine_init_common"
+        },
+        "intel_context_lock_pinned": {
+            "ground_truth": "1",
+            "function": "intel_context_lock_pinned",
+            "description": "stablises the pinned status of the hw context ce the context acquire lock on the pinned status of the hw context such that the context can neither be bound to the gpu or unbound whilst the lock is held intel context is pinned remains stable struct intel context ce undescribed",
+            "id": "intel_context_lock_pinned"
+        },
+        "msc_buffer_alloc": {
+            "ground_truth": "1",
+            "function": "msc_buffer_alloc",
+            "description": "allocate buffer for msc allocate storage buffer for msc depending on the msc mode it will be either done via msc buffer contig alloc for single operation mode or msc buffer win alloc for multiblock operation the latter allocates one window per invocation so in multiblock mode this can be called multiple time for the same msc to allocate multiple window this modifies msc win list and msc base which requires msc buf mutex to serialize so the caller is expected to hold it struct msc msc msc device unsigned long nr page undescribed unsigned int nr win undescribed on success errno otherwise",
+            "id": "msc_buffer_alloc"
+        },
+        "drm_self_refresh_helper_alter_state": {
+            "ground_truth": "1",
+            "function": "drm_self_refresh_helper_alter_state",
+            "description": "alters the atomic state for sr exit called at the end of atomic check this function check the state for flag incompatible with self refresh exit and change them this is bit disingenuous since userspace is expecting one thing and we are giving it another however in order to keep self refresh entirely hidden from userspace this is required at the end we queue up the self refresh entry work so we can enter psr after the desired delay struct drm atomic state state the state currently being checked",
+            "id": "drm_self_refresh_helper_alter_state"
+        },
+        "binder_get_txn_from_and_acq_inner": {
+            "ground_truth": "1",
+            "function": "binder_get_txn_from_and_acq_inner",
+            "description": "get from and acquire inner lock same a binder get txn from except it also acquires the proc inner lock to guarantee that the thread cannot be released while operating on it the caller must call binder inner proc unlock to release the inner lock a well a call binder dec thread txn to release the reference struct binder transaction binder transaction for from the value of from",
+            "id": "binder_get_txn_from_and_acq_inner"
+        },
+        "__v4l2_ctrl_handler_setup": {
+            "ground_truth": "1",
+            "function": "__v4l2_ctrl_handler_setup",
+            "description": "call the ctrl op for all control belonging to the handler to initialize the hardware to the current control value the caller is responsible for acquiring the control handler mutex on behalf of v4l2 ctrl handler setup button control will be skipped a are read only control if hdl null then this just return struct v4l2 ctrl handler hdl the control handler",
+            "id": "__v4l2_ctrl_handler_setup"
+        },
+        "rt_mutex_start_proxy_lock": {
+            "ground_truth": "1",
+            "function": "rt_mutex_start_proxy_lock",
+            "description": "start lock acquisition for another task start the rt mutex acquire it enqueues the waiter and doe deadlock detection it doe not wait see rt mutex wait proxy lock for that special api call for pi futex support note unlike rt mutex start proxy lock this doe remove the waiter on failure struct rt mutex lock the rt mutex to take struct rt mutex waiter waiter the pre initialized rt mutex waiter struct task struct task the task to prepare task blocked on lock acquired the lock for task caller should wake it up error",
+            "id": "rt_mutex_start_proxy_lock"
+        },
+        "snd_soc_dapm_sync_unlocked": {
+            "ground_truth": "1",
+            "function": "snd_soc_dapm_sync_unlocked",
+            "description": "scan and power dapm path walk all dapm audio path and power widget according to their stream or path usage requires external locking return for success struct snd soc dapm context dapm dapm context",
+            "id": "snd_soc_dapm_sync_unlocked"
+        },
+        "gfs2_glock_nq_num": {
+            "ground_truth": "1",
+            "function": "gfs2_glock_nq_num",
+            "description": "acquire glock based on lock number struct gfs2 sbd sdp the filesystem u64 number the lock number const struct gfs2 glock operation glop the glock operation for the type of glock unsigned int state the state to acquire the glock in u16 flag modifier flag for the acquisition struct gfs2 holder gh the struct gfs2 holder errno",
+            "id": "gfs2_glock_nq_num"
+        },
+        "file_ns_capable": {
+            "ground_truth": "0",
+            "function": "file_ns_capable",
+            "description": "determine if the file is opener had capability in effect return true if task that opened the file had capability in effect when the file wa opened this doe not set pf superpriv because the caller may not actually be privileged const struct file file the file we want to check struct user namespace n the usernamespace we want the capability in int cap the capability to be tested for",
+            "id": "file_ns_capable"
+        },
+        "ww_mutex_lock_slow": {
+            "ground_truth": "1",
+            "function": "ww_mutex_lock_slow",
+            "description": "slowpath acquiring of the mutex acquires mutex with the given context after die case this function will sleep until the lock becomes available the caller must have released all mutexes already acquired with the context and then call this function on the contended lock afterwards the caller may continue to re acquire the other mutexes it need with ww mutex lock note that the ealready return code from ww mutex lock can be used to avoid locking this contended mutex twice it is forbidden to call this function with any other mutexes associated with the context held it is forbidden to call this on anything else than the contending mutex note that the slowpath lock acquiring can also be done by calling ww mutex lock directly this function here is simply to help mutex locking code readability by clearly denoting the slowpath struct ww mutex lock the mutex to be acquired struct ww acquire ctx ctx acquire context",
+            "id": "ww_mutex_lock_slow"
+        },
+        "set_link_state": {
+            "ground_truth": "1",
+            "function": "set_link_state",
+            "description": "caller must hold lock",
+            "id": "set_link_state"
+        },
+        "i40e_dcb_need_reconfig": {
+            "ground_truth": "1",
+            "function": "i40e_dcb_need_reconfig",
+            "description": "check if dcb need reconfig struct i40e pf pf board private structure struct i40e dcbx config old cfg current dcb config struct i40e dcbx config new cfg new dcb config",
+            "id": "i40e_dcb_need_reconfig"
+        },
+        "nau8825_sema_acquire": {
+            "ground_truth": "1",
+            "function": "nau8825_sema_acquire",
+            "description": "acquire the semaphore of nau88l25 attempt to acquire the semaphore with number of jiffy if no more task are allowed to acquire the semaphore calling this function will put the task to sleep if the semaphore is not released within the specified number of jiffy this function return if the semaphore is not released within the specified number of jiffy this function return etime if the sleep is interrupted by signal this function will return eintr it return if the semaphore wa acquired successfully acquires the semaphore without jiffy try to acquire the semaphore atomically return if the semaphore ha been acquired successfully or if it cannot be acquired struct nau8825 nau8825 component to register the codec private data with long timeout how long in jiffy to wait before failure or zero to wait until release",
+            "id": "nau8825_sema_acquire"
+        },
+        "locks_mandatory_locked": {
+            "ground_truth": "1",
+            "function": "locks_mandatory_locked",
+            "description": "check for an active lock search the inode is list of lock to find any posix lock which conflict this function is called from lock verify locked only struct file file the file to check",
+            "id": "locks_mandatory_locked"
+        },
+        "sdw_acquire_bus_lock": {
+            "ground_truth": "1",
+            "function": "sdw_acquire_bus_lock",
+            "description": "acquire bus lock for each of the master runtime rt part of this stream to reconfigure the bus note this function is called from soundwire stream ops and is expected that global lock is held before acquiring bus lock struct sdw stream runtime stream soundwire stream",
+            "id": "sdw_acquire_bus_lock"
+        },
+        "wait_event_lock_irq_cmd": {
+            "ground_truth": "1",
+            "function": "wait_event_lock_irq_cmd",
+            "description": "sleep until condition get true the condition is checked under the lock this is expected to be called with the lock taken the process is put to sleep task uninterruptible until the condition evaluates to true the condition is checked each time the waitqueue wq head is woken up wake up ha to be called after changing any variable that could change the result of the wait condition this is supposed to be called while holding the lock the lock is dropped before invoking the cmd and going to sleep and is reacquired afterwards wq head the waitqueue to wait on condition expression for the event to wait for lock locked spinlock which will be released before cmd and schedule and reacquired afterwards cmd command which is invoked outside the critical section before sleep",
+            "id": "wait_event_lock_irq_cmd"
+        },
+        "check_acpi_cpu_flag": {
+            "ground_truth": "1",
+            "function": "check_acpi_cpu_flag",
+            "description": "determine if cpu node ha flag set check the node representing cpu for given flag unsigned int cpu kernel logical cpu number int rev the minimum pptt revision defining the flag u32 flag the flag itself enoent if the pptt doe not exist the cpu cannot be found or the table revision is not new enough any passed flag set flag unset",
+            "id": "check_acpi_cpu_flag"
+        },
+        "msc_buffer_win_free": {
+            "ground_truth": "1",
+            "function": "msc_buffer_win_free",
+            "description": "free window from msc is window list this modifies msc win list and msc base which requires msc buf mutex to serialize so the caller is expected to hold it struct msc msc msc device struct msc window win window to free",
+            "id": "msc_buffer_win_free"
+        },
+        "__i40e_read_nvm_buffer": {
+            "ground_truth": "1",
+            "function": "__i40e_read_nvm_buffer",
+            "description": "read nvm buffer caller must acquire lock read bit word data buffer from the sr using the i40e read nvm srrd method struct i40e hw hw pointer to the hw structure u16 offset offset of the shadow ram word to read u16 word in number of word to read out number of word actually read u16 data word read from the shadow ram",
+            "id": "__i40e_read_nvm_buffer"
+        },
+        "devm_hwspin_lock_request_specific": {
+            "ground_truth": "1",
+            "function": "devm_hwspin_lock_request_specific",
+            "description": "request for specific hwspinlock for managed device this function should be called by user of the hwspinlock module in order to assign them specific hwspinlock usually early board code will be calling this function in order to reserve specific hwspinlock id for predefined purpose should be called from process context might sleep return the address of the assigned hwspinlock or null on error struct device dev the device to request the specific hwspinlock unsigned int id index of the specific hwspinlock that is requested",
+            "id": "devm_hwspin_lock_request_specific"
+        },
+        "_scsih_scsi_lookup_find_by_lun": {
+            "ground_truth": "1",
+            "function": "_scsih_scsi_lookup_find_by_lun",
+            "description": "search for matching channel id lun this will search for matching channel id lun in the scsi lookup array returning if found struct mpt3sas adapter ioc per adapter object int id target id unsigned int lun lun number int channel channel this function will acquire ioc scsi lookup lock",
+            "id": "_scsih_scsi_lookup_find_by_lun"
+        },
+        "__dev_pm_qos_flags": {
+            "ground_truth": "1",
+            "function": "__dev_pm_qos_flags",
+            "description": "check pm qos flag for given device this routine must be called with dev power lock held struct device dev device to check the pm qos flag for s32 mask flag to check against",
+            "id": "__dev_pm_qos_flags"
+        },
+        "ns_capable": {
+            "ground_truth": "0",
+            "function": "ns_capable",
+            "description": "determine if the current task ha superior capability in effect return true if the current task ha the given superior capability currently available for use false if not this set pf superpriv on the task if the capability is available on the assumption that it is about to be used struct user namespace n the usernamespace we want the capability in int cap the capability to be tested for",
+            "id": "ns_capable"
+        },
+        "ieee80211_iter_chan_contexts_atomic": {
+            "ground_truth": "1",
+            "function": "ieee80211_iter_chan_contexts_atomic",
+            "description": "iterate channel context iterate all active channel context this function is atomic and doe not acquire any lock internally that might be held in other place while calling into the driver the iterator will not find context that is being added during the driver callback to add it but will find it while it is being removed note that during hardware restart all context that existed before the restart are considered already present so will be found while iterating whether they have been re added already or not struct ieee80211 hw hw pointer obtained from ieee80211 alloc hw void iter struct ieee80211 hw hw struct ieee80211 chanctx conf chanctx conf void data iterator function void iter data data passed to iterator function",
+            "id": "ieee80211_iter_chan_contexts_atomic"
+        },
+        "ice_flow_disassoc_prof": {
+            "ground_truth": "1",
+            "function": "ice_flow_disassoc_prof",
+            "description": "disassociate vsi from flow profile assumption the caller ha acquired the lock to the profile list and the software vsi handle ha been validated struct ice hw hw pointer to the hardware structure enum ice block blk classification stage struct ice flow prof prof pointer to flow profile u16 vsi handle software vsi handle",
+            "id": "ice_flow_disassoc_prof"
+        },
+        "nilfs_transaction_begin": {
+            "ground_truth": "1",
+            "function": "nilfs_transaction_begin",
+            "description": "start indivisible file operation nilfs transaction begin acquires reader writer semaphore called the segment semaphore to make segment construction and write task exclusive the function is used with nilfs transaction commit in pair the region enclosed by these two function can be nested to avoid deadlock the semaphore is only acquired or released in the outermost call this function allocates nilfs transaction info struct to keep context information on it it is initialized and hooked onto the current task in the outermost call if pre allocated struct is given to ti it is used instead otherwise new struct is assigned from slab when vacancy check flag is set this function will check the amount of free space and will wait for the gc to reclaim disk space if low capacity return value on success is returned on error one of the following negative error code is returned enomem insufficient memory available enospc no space left on device struct super block sb super block struct nilfs transaction info ti nilfs transaction info int vacancy check flag for vacancy rate check",
+            "id": "nilfs_transaction_begin"
+        },
+        "mpt3sas_scsih_expander_find_by_sas_address": {
+            "ground_truth": "1",
+            "function": "mpt3sas_scsih_expander_find_by_sas_address",
+            "description": "expander device search this search for expander device based on sa address then return the sa node object struct mpt3sas adapter ioc per adapter object u64 sa address sa address calling function should acquire ioc sa node lock",
+            "id": "mpt3sas_scsih_expander_find_by_sas_address"
+        },
+        "wait_event_interruptible_lock_irq_cmd": {
+            "ground_truth": "1",
+            "function": "wait_event_interruptible_lock_irq_cmd",
+            "description": "sleep until condition get true the condition is checked under the lock this is expected to be called with the lock taken the process is put to sleep task interruptible until the condition evaluates to true or signal is received the condition is checked each time the waitqueue wq head is woken up wake up ha to be called after changing any variable that could change the result of the wait condition this is supposed to be called while holding the lock the lock is dropped before invoking the cmd and going to sleep and is reacquired afterwards the macro will return erestartsys if it wa interrupted by signal and if condition evaluated to true wq head the waitqueue to wait on condition expression for the event to wait for lock locked spinlock which will be released before cmd and schedule and reacquired afterwards cmd command which is invoked outside the critical section before sleep",
+            "id": "wait_event_interruptible_lock_irq_cmd"
+        },
+        "_scsih_fw_event_del_from_list": {
+            "ground_truth": "1",
+            "function": "_scsih_fw_event_del_from_list",
+            "description": "delete fw event from the list if the fw event is on the fw event list remove it and do put struct mpt3sas adapter ioc per adapter object struct fw event work fw event object describing the event this function will acquire ioc fw event lock",
+            "id": "_scsih_fw_event_del_from_list"
+        },
+        "drm_gem_mmap_obj": {
+            "ground_truth": "1",
+            "function": "drm_gem_mmap_obj",
+            "description": "memory map gem object set up the vma to prepare mapping of the gem object using the gem vm ops provided by the driver depending on their requirement driver can either provide fault handler in their gem vm ops in which case any access to the object will be trapped to perform migration gtt binding surface register allocation or performance monitoring or mmap the buffer memory synchronously after calling drm gem mmap obj this function is mainly intended to implement the dmabuf mmap operation when the gem object is not looked up based on it fake offset to implement the drm mmap operation driver should use the drm gem mmap function drm gem mmap obj assumes the user is granted access to the buffer while drm gem mmap prevents unprivileged user from mapping random object so caller must verify access restriction before calling this helper return or success or einval if the object size is smaller than the vma size or if no gem vm ops are provided struct drm gem object obj the gem object to map unsigned long obj size the object size to be mapped in byte struct vm area struct vma vma for the area to be mapped",
+            "id": "drm_gem_mmap_obj"
+        },
+        "drm_atomic_nonblocking_commit": {
+            "ground_truth": "1",
+            "function": "drm_atomic_nonblocking_commit",
+            "description": "atomic nonblocking commit note that this function can return edeadlk if the driver needed to acquire more lock but encountered deadlock the caller must then do the usual backoff dance and restart all other error are fatal this function will take it own reference on state caller should always release their reference with drm atomic state put struct drm atomic state state atomic configuration to check on success negative error code on failure",
+            "id": "drm_atomic_nonblocking_commit"
+        },
+        "locked_inode_to_wb_and_lock_list": {
+            "ground_truth": "1",
+            "function": "locked_inode_to_wb_and_lock_list",
+            "description": "determine locked inode is wb and lock it return inode is wb with it list lock held inode lock must be held on entry and is released on return the returned wb is guaranteed to stay inode is associated wb until it list lock is released struct inode inode inode of interest with lock held",
+            "id": "locked_inode_to_wb_and_lock_list"
+        },
+        "pwrdm_lock": {
+            "ground_truth": "1",
+            "function": "pwrdm_lock",
+            "description": "acquire linux spinlock on powerdomain acquire the powerdomain spinlock on pwrdm no return value struct powerdomain pwrdm struct powerdomain to lock",
+            "id": "pwrdm_lock"
+        },
+        "binder_inner_proc_unlock": {
+            "ground_truth": "1",
+            "function": "binder_inner_proc_unlock",
+            "description": "release inner lock for given binder proc release lock acquired via binder inner proc lock proc struct binder proc to acquire",
+            "id": "binder_inner_proc_unlock"
+        },
+        "amdgpu_device_check_block_size": {
+            "ground_truth": "1",
+            "function": "amdgpu_device_check_block_size",
+            "description": "validate the vm block size validates the vm block size specified via module parameter the vm block size defines number of bit in page table versus page directory page is 4kb so we have bit offset minimum bit in the page table and the remaining bit are in the page directory struct amdgpu device adev amdgpu device pointer",
+            "id": "amdgpu_device_check_block_size"
+        },
+        "iosf_mbi_punit_acquire": {
+            "ground_truth": "1",
+            "function": "iosf_mbi_punit_acquire",
+            "description": "acquire access to the unit one some system the unit access the pmic to change various voltage through the same bus a other kernel driver use for battery monitoring if driver sends request to the unit which require the unit to access the pmic bus while another driver is also accessing the pmic bus various bad thing happen call this function before sending request to the unit which may make it access the pmic be it through iosf mbi function or through other mean this function will block all kernel access to the pmic i2c bus so that the unit can safely access the pmic over the shared i2c bus note on these system the i2c bus driver will request sempahore from the unit for exclusive access to the pmic bus when i2c driver are accessing it but this doe not appear to be sufficient we still need to avoid making certain unit request during the access window to avoid problem this function lock mutex a such it may sleep void no argument",
+            "id": "iosf_mbi_punit_acquire"
+        },
+        "onenand_block_isbad": {
+            "ground_truth": "1",
+            "function": "onenand_block_isbad",
+            "description": "mtd interface check whether the block at the given offset is bad param mtd mtd device structure param ofs offset relative to mtd start check whether the block is bad struct mtd info mtd undescribed loff ofs undescribed",
+            "id": "onenand_block_isbad"
+        },
+        "ixgbe_acquire_swfw_sync_X550em": {
+            "ground_truth": "1",
+            "function": "ixgbe_acquire_swfw_sync_X550em",
+            "description": "acquire swfw semaphore acquires the swfw semaphore and set the i2c mux struct ixgbe hw hw pointer to hardware structure u32 mask mask to specify which semaphore to acquire",
+            "id": "ixgbe_acquire_swfw_sync_X550em"
+        },
+        "ieee80211_unreserve_tid": {
+            "ground_truth": "1",
+            "function": "ieee80211_unreserve_tid",
+            "description": "request to unreserve specific tid once there is no longer any need for reserving certain tid this function should be called and no longer will packet have their tid modified for preventing use of this tid in the driver note that this function block and acquires lock so it should be called without driver lock held also note this function should only be called from the driver is sta state callback struct ieee80211 sta sta the station u8 tid the tid to unreserve",
+            "id": "ieee80211_unreserve_tid"
+        },
+        "msc_buffer_relink": {
+            "ground_truth": "1",
+            "function": "msc_buffer_relink",
+            "description": "set up block descriptor for multiblock mode this traverse msc win list which requires msc buf mutex to serialize so the caller is expected to hold it struct msc msc msc device",
+            "id": "msc_buffer_relink"
+        },
+        "ixgbe_reset_cs4227": {
+            "ground_truth": "1",
+            "function": "ixgbe_reset_cs4227",
+            "description": "reset cs4227 using port expander this function assumes that the caller ha acquired the proper semaphore return error code struct ixgbe hw hw pointer to hardware structure",
+            "id": "ixgbe_reset_cs4227"
+        },
+        "pci_pme_capable": {
+            "ground_truth": "0",
+            "function": "pci_pme_capable",
+            "description": "check the capability of pci device to generate pme struct pci dev dev pci device to handle pci power state pci state from which device will issue pme",
+            "id": "pci_pme_capable"
+        },
+        "read_seqbegin_or_lock_irqsave": {
+            "ground_truth": "1",
+            "function": "read_seqbegin_or_lock_irqsave",
+            "description": "begin seqlock lockless reader or non interruptible locking reader this is the irqsave variant of read seqbegin or lock use it only if the seqlock write section or other read section can be invoked from hardirq context note interrupt will be disabled only for locking reader mode seqlock lock pointer to seqlock int seq marker and return parameter check read seqbegin or lock the saved local interrupt state in case of locking reader to be passed to done seqretry irqrestore the encountered sequence counter value returned through seq overloaded a return parameter check read seqbegin or lock",
+            "id": "read_seqbegin_or_lock_irqsave"
+        },
+        "mutex_trylock": {
+            "ground_truth": "1",
+            "function": "mutex_trylock",
+            "description": "try to acquire the mutex without waiting try to acquire the mutex atomically return if the mutex ha been acquired successfully and on contention this function must not be used in interrupt context the mutex must be released by the same task that acquired it note this function follows the spin trylock convention so it is negated from the down trylock return value be careful about this when converting semaphore user to mutexes struct mutex lock the mutex to be acquired",
+            "id": "mutex_trylock"
+        },
+        "capable_wrt_inode_uidgid": {
+            "ground_truth": "0",
+            "function": "capable_wrt_inode_uidgid",
+            "description": "check nsown capable and uid and gid mapped return true if the current task ha the given capability targeted at it own user namespace and that the given inode is uid and gid are mapped into the current user namespace const struct inode inode the inode in question int cap the capability in question",
+            "id": "capable_wrt_inode_uidgid"
+        },
+        "mutex_lock_interruptible": {
+            "ground_truth": "1",
+            "function": "mutex_lock_interruptible",
+            "description": "acquire the mutex interruptible by signal lock the mutex like mutex lock if signal is delivered while the process is sleeping this function will return without acquiring the mutex struct mutex lock the mutex to be acquired process context if the lock wa successfully acquired or eintr if signal arrived",
+            "id": "mutex_lock_interruptible"
+        },
+        "drm_atomic_add_affected_planes": {
+            "ground_truth": "1",
+            "function": "drm_atomic_add_affected_planes",
+            "description": "add plane for crtc this function walk the current configuration and add all plane currently used by crtc to the atomic configuration state this is useful when an atomic commit also need to check all currently enabled plane on crtc when changing the mode it is also useful when re enabling crtc to avoid special code to force enable all plane since acquiring plane state will always also acquire the mutex of the current crtc for that plane if there is any adding all the plane state for crtc will not reduce parallism of atomic update struct drm atomic state state atomic state struct drm crtc crtc drm crtc on success or can fail with edeadlk or enomem when the error is edeadlk then the mutex code ha detected deadlock and the entire atomic sequence must be restarted all other error are fatal",
+            "id": "drm_atomic_add_affected_planes"
+        },
+        "ww_mutex_lock": {
+            "ground_truth": "1",
+            "function": "ww_mutex_lock",
+            "description": "acquire the mutex lock the mutex exclusively for this task deadlock within given class of lock are detected and handled with the wait die algorithm if the lock is not immediately available this function will either sleep until it is wait case or it selects the current context for backing off by returning edeadlk die case trying to acquire the same lock with the same context twice is also detected and signalled by returning ealready return if the mutex wa successfully acquired in the die case the caller must release all currently held mutexes for the given context and then wait for this contending lock to be available by calling ww mutex lock slow alternatively caller can opt to not acquire this lock and proceed with trying to acquire further mutexes when scanning through lru list trying to free resource the mutex must later on be released by the same task that acquired it the task may not exit without first unlocking the mutex also kernel memory where the mutex resides must not be freed with the mutex still locked the mutex must first be initialized or statically defined before it can be locked memset ing the mutex to is not allowed the mutex must be of the same lock class a wa used to initialize the acquire context mutex acquired with this function must be released with ww mutex unlock struct ww mutex lock the mutex to be acquired struct ww acquire ctx ctx acquire context or null to acquire only single lock",
+            "id": "ww_mutex_lock"
+        },
+        "_scsih_check_access_status": {
+            "ground_truth": "1",
+            "function": "_scsih_check_access_status",
+            "description": "check access flag struct mpt3sas adapter ioc per adapter object u64 sa address sa address u16 handle sa device handle u8 access status error returned during discovery of the device for success else failure",
+            "id": "_scsih_check_access_status"
+        },
+        "binder_inner_proc_lock": {
+            "ground_truth": "1",
+            "function": "binder_inner_proc_lock",
+            "description": "acquire inner lock for given binder proc acquires proc inner lock used to protect todo list proc struct binder proc to acquire",
+            "id": "binder_inner_proc_lock"
+        },
+        "binder_node_lock": {
+            "ground_truth": "1",
+            "function": "binder_node_lock",
+            "description": "acquire spinlock for given binder node acquires node lock used to protect binder node field node struct binder node to acquire",
+            "id": "binder_node_lock"
+        },
+        "ww_mutex_lock_interruptible": {
+            "ground_truth": "1",
+            "function": "ww_mutex_lock_interruptible",
+            "description": "acquire the mutex interruptible lock the mutex exclusively for this task deadlock within given class of lock are detected and handled with the wait die algorithm if the lock is not immediately available this function will either sleep until it is wait case or it selects the current context for backing off by returning edeadlk die case trying to acquire the same lock with the same context twice is also detected and signalled by returning ealready return if the mutex wa successfully acquired if signal arrives while waiting for the lock then this function return eintr in the die case the caller must release all currently held mutexes for the given context and then wait for this contending lock to be available by calling ww mutex lock slow interruptible alternatively caller can opt to not acquire this lock and proceed with trying to acquire further mutexes when scanning through lru list trying to free resource the mutex must later on be released by the same task that acquired it the task may not exit without first unlocking the mutex also kernel memory where the mutex resides must not be freed with the mutex still locked the mutex must first be initialized or statically defined before it can be locked memset ing the mutex to is not allowed the mutex must be of the same lock class a wa used to initialize the acquire context mutex acquired with this function must be released with ww mutex unlock struct ww mutex lock the mutex to be acquired struct ww acquire ctx ctx acquire context",
+            "id": "ww_mutex_lock_interruptible"
+        },
+        "arch_elf_pt_proc": {
+            "ground_truth": "1",
+            "function": "arch_elf_pt_proc",
+            "description": "check pt loproc pt hiproc elf program header inspects the program header phdr to validate it correctness and or suitability for the system called once per elf program header in the range pt loproc to pt hiproc for both the elf being loaded and it interpreter struct elfhdr ehdr the main elf header struct elf phdr phdr the program header to check struct file elf the open elf file bool is interp true if the phdr is from the interpreter of the elf being loaded else false struct arch elf state state architecture specific state preserved throughout the process of loading the elf zero to proceed with the elf load non zero to fail the elf load with that return code",
+            "id": "arch_elf_pt_proc"
+        },
+        "drm_atomic_add_affected_connectors": {
+            "ground_truth": "1",
+            "function": "drm_atomic_add_affected_connectors",
+            "description": "add connector for crtc this function walk the current configuration and add all connector currently using crtc to the atomic configuration state note that this function must acquire the connection mutex this can potentially cause unneeded seralization if the update is just for the plane on one crtc hence driver and helper should only call this when really needed when full modeset need to happen due to some change struct drm atomic state state atomic state struct drm crtc crtc drm crtc on success or can fail with edeadlk or enomem when the error is edeadlk then the mutex code ha detected deadlock and the entire atomic sequence must be restarted all other error are fatal",
+            "id": "drm_atomic_add_affected_connectors"
+        },
+        "css_next_descendant_post": {
+            "ground_truth": "1",
+            "function": "css_next_descendant_post",
+            "description": "find the next descendant for post order walk to be used by cs for each descendant post find the next descendant to visit for post order traversal of root is descendant root is included in the iteration and the last node to be visited while this function requires cgroup mutex or rcu read locking it doe not require the whole traversal to be contained in single critical section this function will return the correct next descendant a long a both po and cgroup are accessible and po is descendant of cgroup if subsystem synchronizes cs online and the start of iteration cs which finished cs online is guaranteed to be visible in the future iteration and will stay visible until the last reference is put cs which ha not finished cs online or already finished cs offline may show up during traversal it is each subsystem is responsibility to synchronize against on offlining struct cgroup subsys state po the current position null to initiate traversal struct cgroup subsys state root cs whose descendant to walk",
+            "id": "css_next_descendant_post"
+        },
+        "_scsih_sas_device_init_add": {
+            "ground_truth": "1",
+            "function": "_scsih_sas_device_init_add",
+            "description": "insert sa device to the list adding new object at driver load time to the ioc sa device init list struct mpt3sas adapter ioc per adapter object struct sa device sa device the sa device object this function will acquire ioc sa device lock",
+            "id": "_scsih_sas_device_init_add"
+        },
+        "ixgbe_acquire_swfw_sync_x550em_a": {
+            "ground_truth": "1",
+            "function": "ixgbe_acquire_swfw_sync_x550em_a",
+            "description": "acquire swfw semaphore acquires the swfw semaphore and get the shared phy token a needed struct ixgbe hw hw pointer to hardware structure u32 mask mask to specify which semaphore to acquire",
+            "id": "ixgbe_acquire_swfw_sync_x550em_a"
+        },
+        "futex_proxy_trylock_atomic": {
+            "ground_truth": "1",
+            "function": "futex_proxy_trylock_atomic",
+            "description": "attempt an atomic lock for the top waiter try and get the lock on behalf of the top waiter if we can do it atomically wake the top waiter if we succeed if the caller specified set waiter then direct futex lock pi atomic to force setting the futex waiter bit hb1 and hb2 must be held by the caller exiting is only set when the return value is ebusy if so this hold refcount on the exiting task on return and the caller need to drop it after waiting for the exit to complete u32 user pifutex the user address of the to futex struct futex hash bucket hb1 the from futex hash bucket must be locked by the caller struct futex hash bucket hb2 the to futex hash bucket must be locked by the caller union futex key key1 the from futex key union futex key key2 the to futex key struct futex pi state p address to store the pi state pointer struct task struct exiting pointer to store the task pointer of the owner task which is in the middle of exiting int set waiter force setting the futex waiter bit or not failed to acquire the lock atomically acquired the lock return value is vpid of the top waiter error",
+            "id": "futex_proxy_trylock_atomic"
+        },
+        "drm_mode_equal_no_clocks": {
+            "ground_truth": "1",
+            "function": "drm_mode_equal_no_clocks",
+            "description": "test mode for equality check to see if mode1 and mode2 are equivalent but do not check the pixel clock const struct drm display mode mode1 first mode const struct drm display mode mode2 second mode true if the mode are equal false otherwise",
+            "id": "drm_mode_equal_no_clocks"
+        },
+        "ww_mutex_lock_slow_interruptible": {
+            "ground_truth": "1",
+            "function": "ww_mutex_lock_slow_interruptible",
+            "description": "slowpath acquiring of the mutex interruptible acquires mutex with the given context after die case this function will sleep until the lock becomes available and return when the lock ha been acquired if signal arrives while waiting for the lock then this function return eintr the caller must have released all mutexes already acquired with the context and then call this function on the contended lock afterwards the caller may continue to re acquire the other mutexes it need with ww mutex lock note that the ealready return code from ww mutex lock can be used to avoid locking this contended mutex twice it is forbidden to call this function with any other mutexes associated with the given context held it is forbidden to call this on anything else than the contending mutex note that the slowpath lock acquiring can also be done by calling ww mutex lock interruptible directly this function here is simply to help mutex locking code readability by clearly denoting the slowpath struct ww mutex lock the mutex to be acquired struct ww acquire ctx ctx acquire context",
+            "id": "ww_mutex_lock_slow_interruptible"
+        },
+        "drm_vma_node_is_allowed": {
+            "ground_truth": "1",
+            "function": "drm_vma_node_is_allowed",
+            "description": "check whether an open file is granted access search the list in node whether tag is currently on the list of allowed open file see drm vma node allow this is locked against concurrent access internally struct drm vma offset node node node to check struct drm file tag tag of file to remove true iff filp is on the list",
+            "id": "drm_vma_node_is_allowed"
+        },
+        "wiphy_ext_feature_isset": {
+            "ground_truth": "1",
+            "function": "wiphy_ext_feature_isset",
+            "description": "check the extended feature flag the extended feature are flagged in multiple byte see type struct wiphy ext feature struct wiphy wiphy the wiphy to modify enum nl80211 ext feature index ftidx extended feature bit index",
+            "id": "wiphy_ext_feature_isset"
+        },
+        "snd_soc_dapm_nc_pin_unlocked": {
+            "ground_truth": "1",
+            "function": "snd_soc_dapm_nc_pin_unlocked",
+            "description": "permanently disable pin mark the specified pin a being not connected disabling it along any parent or child widget at present this is identical to snd soc dapm disable pin but in future it will be extended to do additional thing such a disabling control which only affect path through the pin requires external locking note snd soc dapm sync need to be called after this for dapm to do any widget power switching struct snd soc dapm context dapm dapm context const char pin pin name",
+            "id": "snd_soc_dapm_nc_pin_unlocked"
+        },
+        "local_lock": {
+            "ground_truth": "1",
+            "function": "local_lock",
+            "description": "acquire per cpu local lock lock the lock variable",
+            "id": "local_lock"
+        },
+        "DRM_MODESET_LOCK_ALL_BEGIN": {
+            "ground_truth": "1",
+            "function": "DRM_MODESET_LOCK_ALL_BEGIN",
+            "description": "helper to acquire modeset lock use these macro to simplify grabbing all modeset lock using local context this ha the advantage of reducing boilerplate but also properly checking return value where appropriate any code run between begin and end will be holding the modeset lock this must be paired with drm modeset lock all end we will jump back and forth between the label on deadlock and error condition driver can acquire additional modeset lock if any lock acquisition fails the control flow need to jump to drm modeset lock all end with the ret parameter containing the return value of drm modeset lock dev drm device ctx local modeset acquire context will be dereferenced flag drm modeset acquire flag to pas to drm modeset acquire init ret local ret err etc variable to track error status the only possible value of ret immediately after drm modeset lock all begin is so no error checking is necessary",
+            "id": "DRM_MODESET_LOCK_ALL_BEGIN"
+        },
+        "bnx2x_mcast_refresh_registry_e1": {
+            "ground_truth": "1",
+            "function": "bnx2x_mcast_refresh_registry_e1",
+            "description": "check the ramrod data first entry flag to see if it is delete or add command and update the registry correspondingly if add allocate memory and add the entry to the registry list if delete clear the registry and free the memory struct bnx2x bp device handle struct bnx2x mcast obj multicast info",
+            "id": "bnx2x_mcast_refresh_registry_e1"
+        },
+        "queued_write_trylock": {
+            "ground_truth": "1",
+            "function": "queued_write_trylock",
+            "description": "try to acquire write lock of queue rwlock struct qrwlock lock pointer to queue rwlock structure if lock acquired if failed",
+            "id": "queued_write_trylock"
+        },
+        "sched_set_itmt_support": {
+            "ground_truth": "1",
+            "function": "sched_set_itmt_support",
+            "description": "indicate platform support itmt this function is used by the o to indicate to scheduler that the platform is capable of supporting the itmt feature the current scheme ha the pstate driver detects if the system is itmt capable and call sched set itmt support this must be done only after sched set itmt core prio ha been called to set the cpu priority it must not be called with cpu hot plug lock held a we need to acquire the lock to rebuild sched domain later void no argument on success",
+            "id": "sched_set_itmt_support"
+        },
+        "gfs2_reservation_check_and_update": {
+            "ground_truth": "1",
+            "function": "gfs2_reservation_check_and_update",
+            "description": "check for reservation during block alloc this check the current position in the rgrp to see whether there is reservation covering this block if not then this function is no op if there is then the position is moved to the end of the contiguous reservation so that we are pointing at the first non reserved block struct gfs2 rbm rbm the current position in the resource group const struct gfs2 inode ip the inode for which we are searching for block u32 minext the minimum extent length struct gfs2 extent maxext pointer to the maximum extent structure if no reservation if rbm ha changed otherwise an error",
+            "id": "gfs2_reservation_check_and_update"
+        },
+        "check_memory_region": {
+            "ground_truth": "1",
+            "function": "check_memory_region",
+            "description": "check memory region and report if invalid access unsigned long addr the accessed address size size the accessed size bool write true if access is write access unsigned long ret ip return address true if access wa valid false if invalid",
+            "id": "check_memory_region"
+        },
+        "kcsan_end_scoped_access": {
+            "ground_truth": "1",
+            "function": "kcsan_end_scoped_access",
+            "description": "end scoped access end scoped access which will stop kcsan checking the memory range requires that kcsan begin scoped access wa previously called once for sa struct kcsan scoped access sa previously initialized struct kcsan scoped access",
+            "id": "kcsan_end_scoped_access"
+        },
+        "cvmx_spinlock_trylock": {
+            "ground_truth": "1",
+            "function": "cvmx_spinlock_trylock",
+            "description": "may take some time to acquire the lock even if it is available due to the ll sc not succeeding return lock successfully taken lock not taken held by someone else these return value match the linux semantics cvmx spinlock lock pointer to lock structure",
+            "id": "cvmx_spinlock_trylock"
+        },
+        "ufshcd_update_uic_error": {
+            "ground_truth": "1",
+            "function": "ufshcd_update_uic_error",
+            "description": "check and set fatal uic error flag return irq handled if interrupt is valid irq none if invalid interrupt struct ufs hba hba per adapter instance",
+            "id": "ufshcd_update_uic_error"
+        },
+        "of_hwspin_lock_get_id": {
+            "ground_truth": "1",
+            "function": "of_hwspin_lock_get_id",
+            "description": "get lock id for an of phandle based specific lock this function provides mean for dt user of the hwspinlock module to get the global lock id of specific hwspinlock using the phandle of the hwspinlock device so that it can be requested using the normal hwspin lock request specific api return the global lock id number on success eprobe defer if the hwspinlock device is not yet registered einval on invalid args specifier value or an appropriate error a returned from the of parsing of the dt client node struct device node np device node from which to request the specific hwlock int index index of the hwlock in the list of value",
+            "id": "of_hwspin_lock_get_id"
+        },
+        "rio_lock_device": {
+            "ground_truth": "1",
+            "function": "rio_lock_device",
+            "description": "acquires host device lock for specified device attepts to acquire host device lock for specified device return if device lock acquired or einval if timeout expires struct rio mport port master port to send transaction u16 destid destination id for device switch u8 hopcount hopcount to reach switch int wait m max wait time in msec no timeout",
+            "id": "rio_lock_device"
+        },
+        "drm_color_lut_check": {
+            "ground_truth": "1",
+            "function": "drm_color_lut_check",
+            "description": "check validity of lookup table helper to check whether userspace provided lookup table is valid and satisfies hardware requirement driver pas bitmask indicating which of the test in type drm color lut test should be performed return on success einval on failure overview property a represented by type drm property are used to extend the modeset interface exposed to userspace for the atomic modeset ioctl property are even the only way to transport metadata about the desired new modeset configuration from userspace to the kernel property have well defined value range which is enforced by the drm core see the documentation of the flag member of type struct drm property for an overview of the different property type and range property do not store the current value directly but need to be instatiated by attaching them to type drm mode object with drm object attach property property value are only 64bit to support bigger pile of data like gamma table color correction matrix or large structure property can instead point at type drm property blob with that additional data property are defined by their symbolic name userspace must keep per object mapping from those name to the property id used in the atomic ioctl and in the get set property ioctl const struct drm property blob lut property blob containing lut to check u32 test bitmask of test to run",
+            "id": "drm_color_lut_check"
+        },
+        "gfs2_glock_nq_m": {
+            "ground_truth": "1",
+            "function": "gfs2_glock_nq_m",
+            "description": "acquire multiple glocks unsigned int num gh the number of structure struct gfs2 holder ghs an array of struct gfs2 holder structure on success all glocks acquired errno on failure no glocks acquired",
+            "id": "gfs2_glock_nq_m"
+        },
+        "sched_clear_itmt_support": {
+            "ground_truth": "1",
+            "function": "sched_clear_itmt_support",
+            "description": "revoke platform is support of itmt this function is used by the o to indicate that it ha revoked the platform is support of itmt feature it must not be called with cpu hot plug lock held a we need to acquire the lock to rebuild sched domain later void no argument",
+            "id": "sched_clear_itmt_support"
+        },
+        "msc_buffer_win_alloc": {
+            "ground_truth": "1",
+            "function": "msc_buffer_win_alloc",
+            "description": "alloc window for multiblock mode this modifies msc win list and msc base which requires msc buf mutex to serialize so the caller is expected to hold it struct msc msc msc device unsigned int nr block number of page in this window on success errno otherwise",
+            "id": "msc_buffer_win_alloc"
+        },
+        "bnx2x_trylock_leader_lock": {
+            "ground_truth": "1",
+            "function": "bnx2x_trylock_leader_lock",
+            "description": "try to acquire leader lock try to acquire leader lock for current engine struct bnx2x bp driver handle",
+            "id": "bnx2x_trylock_leader_lock"
+        },
+        "key_task_permission": {
+            "ground_truth": "1",
+            "function": "key_task_permission",
+            "description": "check key can be used check to see whether permission is granted to use key in the desired way but permit the security module to override the caller must hold either ref on cred or must hold the rcu readlock return if successful eacces if access is denied based on the permission bit or the lsm check const key ref key ref the key to check const struct cred cred the credential to use enum key need perm need perm the permission required",
+            "id": "key_task_permission"
+        },
+        "locks_mandatory_area": {
+            "ground_truth": "1",
+            "function": "locks_mandatory_area",
+            "description": "check for conflicting lock search the inode is list of lock to find any posix lock which conflict struct inode inode the file to check struct file filp how the file wa opened if it wa loff start first byte in the file to check loff end lastbyte in the file to check unsigned char type wrlck for write lock else rdlck",
+            "id": "locks_mandatory_area"
+        },
+        "radeon_fence_check_lockup": {
+            "ground_truth": "1",
+            "function": "radeon_fence_check_lockup",
+            "description": "check for hardware lockup check for fence activity and if there is none probe the hardware if lockup occured struct work struct work delayed work item",
+            "id": "radeon_fence_check_lockup"
+        },
+        "__acpi_handle_debug": {
+            "ground_truth": "1",
+            "function": "__acpi_handle_debug",
+            "description": "this function is called through acpi handle debug macro and debug print message with acpi prefix and object path this function acquires the global namespace mutex to obtain an object path in interrupt context it show the object path a struct ddebug descriptor dynamic debug descriptor acpi handle handle acpi device handle const char fmt format string variable argument",
+            "id": "__acpi_handle_debug"
+        },
+        "qed_ptt_set_win": {
+            "ground_truth": "0",
+            "function": "qed_ptt_set_win",
+            "description": "brief qed ptt set win set ptt window is grc bar address param hwfn param new hw addr param ptt",
+            "id": "qed_ptt_set_win"
+        },
+        "jsp_hpd_irq_setup": {
+            "ground_truth": "0",
+            "function": "jsp_hpd_irq_setup",
+            "description": "jsp behaves exactly the same a mcc above except that port is mapped to the ddi pin instead of the tc1 pin this mean we should follow tgp is mask table rather than icp is mask table",
+            "id": "jsp_hpd_irq_setup"
+        },
+        "handle_interrupt": {
+            "ground_truth": "0",
+            "function": "handle_interrupt",
+            "description": "interrupt setup handling for irq is delivered by master",
+            "id": "handle_interrupt"
+        },
+        "exynos5_dmc_set_pause_on_switching": {
+            "ground_truth": "0",
+            "function": "exynos5_dmc_set_pause_on_switching",
+            "description": "control pause feature in dmc there is need of pausing drex dmc when divider or mux in clock tree change it configuration in such situation access to the memory is blocked in dmc automatically this feature is used when clock frequency change request appears and touch clock tree struct exynos5 dmc dmc device which is used for changing this feature",
+            "id": "exynos5_dmc_set_pause_on_switching"
+        },
+        "ena_com_indirect_table_fill_entry": {
+            "ground_truth": "0",
+            "function": "ena_com_indirect_table_fill_entry",
+            "description": "ena com indirect table fill entry fill single entry in the r indirection table fill single entry of the r indirection table in the ena dev resource to flush the indirection table to the device the called should call ena com indirect table set ena dev ena communication layer struct entry idx indirection table entry entry value redirection value return on success and negative value otherwise",
+            "id": "ena_com_indirect_table_fill_entry"
+        },
+        "enabled_lpis_allowed": {
+            "ground_truth": "0",
+            "function": "enabled_lpis_allowed",
+            "description": "booting with kdump and lpis enabled is generally fine any other case is wrong in the absence of firmware efi support",
+            "id": "enabled_lpis_allowed"
+        },
+        "cik_irq_init": {
+            "ground_truth": "0",
+            "function": "cik_irq_init",
+            "description": "init and enable the interrupt ring allocate ring buffer for the interrupt controller enable the rlc disable interrupt enable the ih ring buffer and enable it cik called at device load and reume return for success error for failure struct radeon device rdev radeon device pointer",
+            "id": "cik_irq_init"
+        },
+        "dmz_reclaim_rnd_data": {
+            "ground_truth": "0",
+            "function": "dmz_reclaim_rnd_data",
+            "description": "move valid block of the random data zone dzone into free sequential zone once block are moved remap the zone chunk to the sequential zone",
+            "id": "dmz_reclaim_rnd_data"
+        },
+        "setup_vsync_source": {
+            "ground_truth": "0",
+            "function": "setup_vsync_source",
+            "description": "setup vsync source setup vsync source configuration detail mdp mdp top context driver cfg vsync source selection configuration",
+            "id": "setup_vsync_source"
+        },
+        "start_secondary": {
+            "ground_truth": "0",
+            "function": "start_secondary",
+            "description": "activate secondary processor",
+            "id": "start_secondary"
+        },
+        "cfg80211_get_drvinfo": {
+            "ground_truth": "0",
+            "function": "cfg80211_get_drvinfo",
+            "description": "ethtool helper",
+            "id": "cfg80211_get_drvinfo"
+        },
+        "srmmu_nocache_calcsize": {
+            "ground_truth": "0",
+            "function": "srmmu_nocache_calcsize",
+            "description": "reserve nocache dynamically proportionally to the amount of system ram tomas szepe june",
+            "id": "srmmu_nocache_calcsize"
+        },
+        "media_find_id": {
+            "ground_truth": "0",
+            "function": "media_find_id",
+            "description": "locates specified medium object by type identifier u8 type undescribed",
+            "id": "media_find_id"
+        },
+        "ufx_i2c_wait_busy": {
+            "ground_truth": "0",
+            "function": "ufx_i2c_wait_busy",
+            "description": "wait for busy to clear with timeout of 50ms with 10ms sleep if no monitor is connected there is no error except for timeout",
+            "id": "ufx_i2c_wait_busy"
+        },
+        "__bad_size_call_parameter": {
+            "ground_truth": "0",
+            "function": "__bad_size_call_parameter",
+            "description": "branching function to split up function into set of function that are called for different scalar size of the object handled",
+            "id": "__bad_size_call_parameter"
+        },
+        "arch_free_nodedata": {
+            "ground_truth": "0",
+            "function": "arch_free_nodedata",
+            "description": "for supporting node hotadd we have to allocate new pgdat if an arch ha generic style node data node data nid kzalloc work well but it depends on the architecture in general generic alloc nodedata is used now arch free nodedata is just defined for error path of node hot add",
+            "id": "arch_free_nodedata"
+        },
+        "cail_reg_read": {
+            "ground_truth": "0",
+            "function": "cail_reg_read",
+            "description": "read mmio register provides an mmio register accessor for the atom interpreter r4xx return the value of the mmio register struct card info info atom card info pointer uint32 reg mmio register offset",
+            "id": "cail_reg_read"
+        },
+        "ec_mul2": {
+            "ground_truth": "0",
+            "function": "ec_mul2",
+            "description": "",
+            "id": "ec_mul2"
+        },
+        "ice_dcb_cfg_to_lldp": {
+            "ground_truth": "0",
+            "function": "ice_dcb_cfg_to_lldp",
+            "description": "convert dcb configuration to mib format convert the dcb configuration to mib format u8 lldpmib pointer to the hw struct u16 miblen length of lldp mib struct ice dcbx cfg dcbcfg local store which hold the dcb config",
+            "id": "ice_dcb_cfg_to_lldp"
+        },
+        "s3c_cpufreq_setio": {
+            "ground_truth": "0",
+            "function": "s3c_cpufreq_setio",
+            "description": "function to wrapper the driver info call to do the cpu specific work",
+            "id": "s3c_cpufreq_setio"
+        },
+        "__crb_cmd_ready": {
+            "ground_truth": "0",
+            "function": "__crb_cmd_ready",
+            "description": "request tpm crb device to enter ready state write crb ctrl req cmd ready to tpm crb ctrl req and poll till the device acknowledge it by clearing the bit the device should respond within timeout the function doe nothing for device with acpi start method or smc start method struct device dev crb device struct crb priv priv crb private data on success etime on timeout",
+            "id": "__crb_cmd_ready"
+        },
+        "ehea_qp_alloc_register": {
+            "ground_truth": "0",
+            "function": "ehea_qp_alloc_register",
+            "description": "allocates memory for queue and register page in phyp",
+            "id": "ehea_qp_alloc_register"
+        },
+        "kgdb_nmi_tty_receiver": {
+            "ground_truth": "0",
+            "function": "kgdb_nmi_tty_receiver",
+            "description": "the tasklet is cheap it doe not cause wakeups when reschedules itself instead it wait for the next tick",
+            "id": "kgdb_nmi_tty_receiver"
+        },
+        "ax25_rx_fragment": {
+            "ground_truth": "0",
+            "function": "ax25_rx_fragment",
+            "description": "given fragment queue it on the fragment queue and if the fragment is complete send it back to ax25 rx iframe",
+            "id": "ax25_rx_fragment"
+        },
+        "snd_trident_foldback_close": {
+            "ground_truth": "0",
+            "function": "snd_trident_foldback_close",
+            "description": "snd trident foldback close description this routine will close the 4dwave foldback capture device for now we will simply free the dma transfer buffer parameter substream pcm substream class",
+            "id": "snd_trident_foldback_close"
+        },
+        "spidelay": {
+            "ground_truth": "0",
+            "function": "spidelay",
+            "description": "spi lm70 specific inlines",
+            "id": "spidelay"
+        },
+        "xhci_hub_status_data": {
+            "ground_truth": "0",
+            "function": "xhci_hub_status_data",
+            "description": "return if the status ha not changed or the number of byte in buf port are indexed from the hcd point of view and indexed from the usb core pointer of view note that the status change bit will be cleared a soon a port status change event is generated so we use the saved status from that event",
+            "id": "xhci_hub_status_data"
+        },
+        "__packet_lookup_frame_in_block": {
+            "ground_truth": "0",
+            "function": "__packet_lookup_frame_in_block",
+            "description": "assumes caller ha the sk rx queue lock",
+            "id": "__packet_lookup_frame_in_block"
+        },
+        "i3c_driver_register_with_owner": {
+            "ground_truth": "0",
+            "function": "i3c_driver_register_with_owner",
+            "description": "register an i3c device driver register drv to the core struct i3c driver drv driver to register struct module owner module that owns this driver in case of success negative error core otherwise",
+            "id": "i3c_driver_register_with_owner"
+        },
+        "gcov_info_next": {
+            "ground_truth": "0",
+            "function": "gcov_info_next",
+            "description": "return next profiling data set return next gcov info following info or first gcov info in the chain if info is null struct gcov info info profiling data set",
+            "id": "gcov_info_next"
+        },
+        "ks8851_init_mac": {
+            "ground_truth": "0",
+            "function": "ks8851_init_mac",
+            "description": "initialise the mac address get or create the initial mac address for the device and then set that into the station address register mac address supplied in the device tree take precedence otherwise if there is an eeprom present then we try that if no valid mac address is found we use eth random addr to create new one struct ks8851 net k the device structure struct device node np the device node pointer",
+            "id": "ks8851_init_mac"
+        },
+        "_volume": {
+            "ground_truth": "0",
+            "function": "_volume",
+            "description": "when volume max then copy only to avoid volume modification",
+            "id": "_volume"
+        },
+        "smc_rx_wait": {
+            "ground_truth": "0",
+            "function": "smc_rx_wait",
+            "description": "block rcvbuf consumer until len byte available or timeout or interrupted smc smc socket timeo pointer to max second to wait pointer to value for no timeout fcrit add criterion to evaluate a function pointer return if at least byte available in rcvbuf or if socket error shutdown otherwise nothing in rcvbuf nor timeout interrupted",
+            "id": "smc_rx_wait"
+        },
+        "enable_cpu_capabilities": {
+            "ground_truth": "0",
+            "function": "enable_cpu_capabilities",
+            "description": "run through the enabled capability and enable it on all active cpu",
+            "id": "enable_cpu_capabilities"
+        },
+        "rxrpc_kernel_get_srtt": {
+            "ground_truth": "0",
+            "function": "rxrpc_kernel_get_srtt",
+            "description": "get call is peer smoothed rtt get the call is peer smoothed rtt in u struct socket sock the socket on which the call is in progress struct rxrpc call call the call to query u32 srtt where to store the srtt value",
+            "id": "rxrpc_kernel_get_srtt"
+        },
+        "tw68_buffer_count": {
+            "ground_truth": "0",
+            "function": "tw68_buffer_count",
+            "description": "calc max of buffer from size must not exceed the 4mb virtual address space per dma channel",
+            "id": "tw68_buffer_count"
+        },
+        "zfcp_qdio_set_scount": {
+            "ground_truth": "0",
+            "function": "zfcp_qdio_set_scount",
+            "description": "set sbal count value struct zfcp qdio qdio pointer to struct zfcp qdio struct zfcp qdio req req the current zfcp qdio req",
+            "id": "zfcp_qdio_set_scount"
+        },
+        "t3_tp_get_mib_stats": {
+            "ground_truth": "0",
+            "function": "t3_tp_get_mib_stats",
+            "description": "read tp is mib counter struct adapter adap the adapter struct tp mib stats tps hold the returned counter value return the value of tp is mib counter",
+            "id": "t3_tp_get_mib_stats"
+        },
+        "w_e_end_rsdata_req": {
+            "ground_truth": "0",
+            "function": "w_e_end_rsdata_req",
+            "description": "worker callback to send r data reply packet in response to r data request struct drbd work work object int cancel the connection will be closed anyways",
+            "id": "w_e_end_rsdata_req"
+        },
+        "dccp_ackvec_reserve_seats": {
+            "ground_truth": "0",
+            "function": "dccp_ackvec_reserve_seats",
+            "description": "mark num entry after buf head a not yet received",
+            "id": "dccp_ackvec_reserve_seats"
+        },
+        "ac97_reset_wait": {
+            "ground_truth": "0",
+            "function": "ac97_reset_wait",
+            "description": "wait for while until register are accessible after reset return if ok negative not ready",
+            "id": "ac97_reset_wait"
+        },
+        "zr36050_set_mode": {
+            "ground_truth": "0",
+            "function": "zr36050_set_mode",
+            "description": "set compression expansion mode and launch codec this should be the last call from the master before starting processing",
+            "id": "zr36050_set_mode"
+        },
+        "dce120_timing_generator_disable_vga": {
+            "ground_truth": "0",
+            "function": "dce120_timing_generator_disable_vga",
+            "description": "stuff to move to other virtual hw object",
+            "id": "dce120_timing_generator_disable_vga"
+        },
+        "afs_vnode_commit_status": {
+            "ground_truth": "0",
+            "function": "afs_vnode_commit_status",
+            "description": "apply the received status and callback to an inode all in the same critical section to avoid race with afs validate",
+            "id": "afs_vnode_commit_status"
+        },
+        "spi_set": {
+            "ground_truth": "0",
+            "function": "spi_set",
+            "description": "spi clock",
+            "id": "spi_set"
+        },
+        "bvec_kmap_irq": {
+            "ground_truth": "0",
+            "function": "bvec_kmap_irq",
+            "description": "remember never ever reenable interrupt between bvec kmap irq and bvec kunmap irq",
+            "id": "bvec_kmap_irq"
+        },
+        "orion_pcie_setup_wins": {
+            "ground_truth": "0",
+            "function": "orion_pcie_setup_wins",
+            "description": "setup pcie bar and address decode win bar disabled bar cover all dram bank win dram bank",
+            "id": "orion_pcie_setup_wins"
+        },
+        "usa49_outcont_callback": {
+            "ground_truth": "0",
+            "function": "usa49_outcont_callback",
+            "description": "not used usa doe not have per port control endpoint",
+            "id": "usa49_outcont_callback"
+        },
+        "tcw_finalize": {
+            "ground_truth": "0",
+            "function": "tcw_finalize",
+            "description": "finalize tcw length field and tidaw list calculate the input output count and tccbl field in the tcw add tcat the tccb and terminate the data tidaw list if used note in case input or output tida is used the tidaw list must be stored in contiguous storage no ttic the tcal field in the tccb must be up to date struct tcw tcw pointer to the tcw int num tidaws the number of tidaws used to address input output data or zero if no tida is used",
+            "id": "tcw_finalize"
+        },
+        "drxj_dap_scu_atomic_read_reg16": {
+            "ground_truth": "0",
+            "function": "drxj_dap_scu_atomic_read_reg16",
+            "description": "fn int drxj dap atomicreadreg16 brief atomic read of bit word",
+            "id": "drxj_dap_scu_atomic_read_reg16"
+        },
+        "handle_8051_request": {
+            "ground_truth": "0",
+            "function": "handle_8051_request",
+            "description": "handle host request from the",
+            "id": "handle_8051_request"
+        },
+        "ipu_smfc_get": {
+            "ground_truth": "0",
+            "function": "ipu_smfc_get",
+            "description": "ipu sensor multiple fifo controller smfc function",
+            "id": "ipu_smfc_get"
+        },
+        "dsp_oops": {
+            "ground_truth": "0",
+            "function": "dsp_oops",
+            "description": "dsp architecture specific callback for oops and stack dump",
+            "id": "dsp_oops"
+        },
+        "vsp1_du_pipeline_setup_output": {
+            "ground_truth": "0",
+            "function": "vsp1_du_pipeline_setup_output",
+            "description": "setup the output side of the pipeline wpf and lif",
+            "id": "vsp1_du_pipeline_setup_output"
+        },
+        "fsl_mc_allocator_remove": {
+            "ground_truth": "0",
+            "function": "fsl_mc_allocator_remove",
+            "description": "callback invoked when an allocatable device is being removed from the system struct fsl mc device mc dev undescribed",
+            "id": "fsl_mc_allocator_remove"
+        },
+        "p4d_offset": {
+            "ground_truth": "0",
+            "function": "p4d_offset",
+            "description": "to find an entry in page table directory",
+            "id": "p4d_offset"
+        },
+        "gb_hid_parse": {
+            "ground_truth": "0",
+            "function": "gb_hid_parse",
+            "description": "hid callback",
+            "id": "gb_hid_parse"
+        },
+        "dasd_eckd_generate_uid": {
+            "ground_truth": "0",
+            "function": "dasd_eckd_generate_uid",
+            "description": "generate device unique id that specifies the physical device",
+            "id": "dasd_eckd_generate_uid"
+        },
+        "display_ctrl_adjust": {
+            "ground_truth": "0",
+            "function": "display_ctrl_adjust",
+            "description": "this function take care the extra register and bit field required to setup mode in board explanation about display control register fpga only support predefined pixel clock and clock select is in bit of new register",
+            "id": "display_ctrl_adjust"
+        },
+        "emulate_step": {
+            "ground_truth": "0",
+            "function": "emulate_step",
+            "description": "emulate instruction that cause transfer of control arithmetic logical instruction load and store cache operation and barrier return if the instruction wa emulated successfully if it could not be emulated or for an instruction that should not be emulated rfid mtmsrd clearing msr ri etc",
+            "id": "emulate_step"
+        },
+        "count_highmem_image_pages": {
+            "ground_truth": "0",
+            "function": "count_highmem_image_pages",
+            "description": "compute the number of highmem page in the image the bit in bm that correspond to image page are assumed to be set struct memory bitmap bm memory bitmap",
+            "id": "count_highmem_image_pages"
+        },
+        "vfe_buf_flush_pending": {
+            "ground_truth": "0",
+            "function": "vfe_buf_flush_pending",
+            "description": "vfe buf flush pending flush all pending buffer output vfe output state vb2 buffer state",
+            "id": "vfe_buf_flush_pending"
+        },
+        "i40iw_make_cm_node": {
+            "ground_truth": "0",
+            "function": "i40iw_make_cm_node",
+            "description": "create new instance of cm node struct i40iw cm core cm core cm is core struct i40iw device iwdev iwarp device structure struct i40iw cm info cm info quad info for connection struct i40iw cm listener listener passive connection is listener",
+            "id": "i40iw_make_cm_node"
+        },
+        "il_cmd_queue_unmap": {
+            "ground_truth": "0",
+            "function": "il_cmd_queue_unmap",
+            "description": "",
+            "id": "il_cmd_queue_unmap"
+        },
+        "partition_handle_show": {
+            "ground_truth": "0",
+            "function": "partition_handle_show",
+            "description": "bus instance attribute define implement display of bus attribute under sys bus visorbus device visorbus",
+            "id": "partition_handle_show"
+        },
+        "ip_vs_unbind_scheduler": {
+            "ground_truth": "0",
+            "function": "ip_vs_unbind_scheduler",
+            "description": "unbind service with it scheduler",
+            "id": "ip_vs_unbind_scheduler"
+        },
+        "gem_put_cell": {
+            "ground_truth": "0",
+            "function": "gem_put_cell",
+            "description": "turn off the chip is clock",
+            "id": "gem_put_cell"
+        },
+        "ia_css_frame_create_from_info": {
+            "ground_truth": "0",
+            "function": "ia_css_frame_create_from_info",
+            "description": "allocate an empty cs frame with no data buffer using the parameter in the frame info brief allocate cs frame structure using frame info structure param frame the allocated frame param in info the frame info structure return the error code",
+            "id": "ia_css_frame_create_from_info"
+        },
+        "s3c_fb_alloc_memory": {
+            "ground_truth": "0",
+            "function": "s3c_fb_alloc_memory",
+            "description": "allocate display memory for framebuffer window allocate memory for the given framebuffer struct s3c fb sfb the base resource for the hardware struct s3c fb win win the window to initialise memory for",
+            "id": "s3c_fb_alloc_memory"
+        },
+        "init_nest_pmu_ref": {
+            "ground_truth": "0",
+            "function": "init_nest_pmu_ref",
+            "description": "init nest pmu ref initialize the imc pmu ref struct for all the node",
+            "id": "init_nest_pmu_ref"
+        },
+        "b43legacy_channel_to_freq_bg": {
+            "ground_truth": "0",
+            "function": "b43legacy_channel_to_freq_bg",
+            "description": "lightweight function to convert channel number to frequency in mhz",
+            "id": "b43legacy_channel_to_freq_bg"
+        },
+        "SPRD_SC_GATE_CLK_FW_NAME": {
+            "ground_truth": "0",
+            "function": "SPRD_SC_GATE_CLK_FW_NAME",
+            "description": "uart1 eb is for console do not gate even if unused",
+            "id": "SPRD_SC_GATE_CLK_FW_NAME"
+        },
+        "llc_ui_getsockopt": {
+            "ground_truth": "0",
+            "function": "llc_ui_getsockopt",
+            "description": "get connection specific socket info struct socket sock socket to get information from int level socket level user is requesting operation on int optname operation name char user optval variable to return operation data in int user optlen length of optval get connection specific socket information",
+            "id": "llc_ui_getsockopt"
+        },
+        "gdb_cmd_reg_get": {
+            "ground_truth": "0",
+            "function": "gdb_cmd_reg_get",
+            "description": "handle the individual regster get",
+            "id": "gdb_cmd_reg_get"
+        },
+        "asc_prt_adv_bios": {
+            "ground_truth": "0",
+            "function": "asc_prt_adv_bios",
+            "description": "display wide board bios information",
+            "id": "asc_prt_adv_bios"
+        },
+        "ioc_clear_queue": {
+            "ground_truth": "0",
+            "function": "ioc_clear_queue",
+            "description": "break any ioc association with the specified queue walk icq list and exit all io cq is struct request queue request queue being cleared",
+            "id": "ioc_clear_queue"
+        },
+        "cpm_muram_addr": {
+            "ground_truth": "0",
+            "function": "cpm_muram_addr",
+            "description": "turn muram offset into virtual address unsigned long offset muram offset to convert",
+            "id": "cpm_muram_addr"
+        },
+        "mei_timer": {
+            "ground_truth": "0",
+            "function": "mei_timer",
+            "description": "timer function struct work struct work pointer to the work struct structure",
+            "id": "mei_timer"
+        },
+        "cirrusfb_set_par": {
+            "ground_truth": "0",
+            "function": "cirrusfb_set_par",
+            "description": "for some reason incomprehensible to me cirrusfb requires that you write the register twice for the setting to take grr dte",
+            "id": "cirrusfb_set_par"
+        },
+        "dfs_cache_destroy": {
+            "ground_truth": "0",
+            "function": "dfs_cache_destroy",
+            "description": "destroy dfs referral cache void no argument",
+            "id": "dfs_cache_destroy"
+        },
+        "et131x_set_packet_filter": {
+            "ground_truth": "0",
+            "function": "et131x_set_packet_filter",
+            "description": "et131x set packet filter configures the rx packet filtering",
+            "id": "et131x_set_packet_filter"
+        },
+        "policy_has_boost_freq": {
+            "ground_truth": "0",
+            "function": "policy_has_boost_freq",
+            "description": "frequency table helper",
+            "id": "policy_has_boost_freq"
+        },
+        "local_dcache_page_flush": {
+            "ground_truth": "0",
+            "function": "local_dcache_page_flush",
+            "description": "helper function for flushing or invalidating entire page from data and instruction cache smp need little extra work since we need to flush the page on all cpu",
+            "id": "local_dcache_page_flush"
+        },
+        "service_irq": {
+            "ground_truth": "0",
+            "function": "service_irq",
+            "description": "this is low level part of the interrupt handler it return if the irq is not ours or if it is where is the number of midi data in the input queue",
+            "id": "service_irq"
+        },
+        "mei_txe_reg_read": {
+            "ground_truth": "0",
+            "function": "mei_txe_reg_read",
+            "description": "read 32bit data from the txe device void iomem base addr register base address unsigned long offset register offset register value",
+            "id": "mei_txe_reg_read"
+        },
+        "vxge_hw_vpath_bcast_enable": {
+            "ground_truth": "0",
+            "function": "vxge_hw_vpath_bcast_enable",
+            "description": "vxge hw vpath bcast enable enable broadcast enable receiving broadcast vp vpath handle",
+            "id": "vxge_hw_vpath_bcast_enable"
+        },
+        "recv_tasklet": {
+            "ground_truth": "0",
+            "function": "recv_tasklet",
+            "description": "fm common sub module will schedule this tasklet whenever it receives fm packet from st driver",
+            "id": "recv_tasklet"
+        },
+        "filemap_sample_wb_err": {
+            "ground_truth": "0",
+            "function": "filemap_sample_wb_err",
+            "description": "sample the current errseq to test for later error writeback error are always reported relative to particular sample point in the past this function provides those sample point struct address space mapping mapping to be sampled",
+            "id": "filemap_sample_wb_err"
+        },
+        "i810fb_suspend": {
+            "ground_truth": "0",
+            "function": "i810fb_suspend",
+            "description": "power management",
+            "id": "i810fb_suspend"
+        },
+        "is_cpu_allowed": {
+            "ground_truth": "0",
+            "function": "is_cpu_allowed",
+            "description": "per cpu kthreads are allowed to run on active online cpu see set cpu allowed ptr and select fallback rq",
+            "id": "is_cpu_allowed"
+        },
+        "cpufreq_notify_post_transition": {
+            "ground_truth": "0",
+            "function": "cpufreq_notify_post_transition",
+            "description": "do post notification when there are chance that transition ha failed",
+            "id": "cpufreq_notify_post_transition"
+        },
+        "drm_dp_dual_mode_write": {
+            "ground_truth": "0",
+            "function": "drm_dp_dual_mode_write",
+            "description": "write to the dp dual mode adaptor register writes size byte to the dp dual mode adaptor register starting at offset struct i2c adapter adapter i2c adapter for the ddc bus u8 offset register offset const void buffer buffer for write data size size sizo of the buffer on success negative error code on failure",
+            "id": "drm_dp_dual_mode_write"
+        },
+        "ath5k_hw_gainf_calibrate": {
+            "ground_truth": "1",
+            "function": "ath5k_hw_gainf_calibrate",
+            "description": "do gain calibration main callback for thermal rf gain calibration engine check for new gain reading and schedule an adjustment if needed return one of enum ath5k rfgain code struct ath5k hw ah the type struct ath5k hw",
+            "id": "ath5k_hw_gainf_calibrate"
+        },
+        "rvt_qp_sends_has_lkey": {
+            "ground_truth": "0",
+            "function": "rvt_qp_sends_has_lkey",
+            "description": "return true is qp sends use lkey qp the rvt qp lkey the lkey struct rvt qp qp undescribed u32 lkey undescribed",
+            "id": "rvt_qp_sends_has_lkey"
+        },
+        "gmap_create": {
+            "ground_truth": "0",
+            "function": "gmap_create",
+            "description": "create guest address space return guest address space structure struct mm struct mm pointer to the parent mm struct unsigned long limit maximum size of the gmap address space",
+            "id": "gmap_create"
+        },
+        "hash_page_mm": {
+            "ground_truth": "0",
+            "function": "hash_page_mm",
+            "description": "result code is handled normal page fault critical hash insertion error access not permitted by subpage protection mechanism",
+            "id": "hash_page_mm"
+        },
+        "bfa_fcport_sm_iocdown": {
+            "ground_truth": "0",
+            "function": "bfa_fcport_sm_iocdown",
+            "description": "port is enabled ioc is down failed",
+            "id": "bfa_fcport_sm_iocdown"
+        },
+        "dwc2_hsotg_irq": {
+            "ground_truth": "0",
+            "function": "dwc2_hsotg_irq",
+            "description": "handle device interrupt int irq the irq number triggered void pw the pw value when registered the handler",
+            "id": "dwc2_hsotg_irq"
+        },
+        "qpic_bam_dma_done": {
+            "ground_truth": "0",
+            "function": "qpic_bam_dma_done",
+            "description": "callback for dma descriptor completion",
+            "id": "qpic_bam_dma_done"
+        },
+        "ax25_clear_queues": {
+            "ground_truth": "0",
+            "function": "ax25_clear_queues",
+            "description": "ax25 subr",
+            "id": "ax25_clear_queues"
+        },
+        "csio_scsi_read": {
+            "ground_truth": "0",
+            "function": "csio_scsi_read",
+            "description": "csio scsi read create scsi read wr get wr slot in the ingres queue and initializes it with scsi read wr req io req structure",
+            "id": "csio_scsi_read"
+        },
+        "sba_unmap_sg": {
+            "ground_truth": "0",
+            "function": "sba_unmap_sg",
+            "description": "unmap scatter gather list see documentation core api dma api howto rst struct device dev instance of pci owned by the driver that is asking struct scatterlist sglist array of buffer length pair int nents number of entry in list enum dma data direction direction or both unsigned long attrs undescribed",
+            "id": "sba_unmap_sg"
+        },
+        "rt2400pci_conf_tx": {
+            "ground_truth": "0",
+            "function": "rt2400pci_conf_tx",
+            "description": "ieee80211 stack callback function",
+            "id": "rt2400pci_conf_tx"
+        },
+        "ice_parse_rx_flow_user_data": {
+            "ground_truth": "0",
+            "function": "ice_parse_rx_flow_user_data",
+            "description": "deconstruct user defined data return on success negative error value on failure struct ethtool rx flow spec fsp pointer to ethtool rx flow specification struct ice rx flow userdef data pointer to userdef data structure for storage",
+            "id": "ice_parse_rx_flow_user_data"
+        },
+        "dax_writeback_mapping_range": {
+            "ground_truth": "0",
+            "function": "dax_writeback_mapping_range",
+            "description": "flush the mapping to the persistent domain within the byte range of start end this is required by data integrity operation to ensure file data is on persistent storage prior to completion of the operation",
+            "id": "dax_writeback_mapping_range"
+        },
+        "ti_abb_init_timings": {
+            "ground_truth": "0",
+            "function": "ti_abb_init_timings",
+            "description": "setup abb clock timing for the current platform struct device dev device struct ti abb abb pointer to the abb instance if timing is updated else return error result",
+            "id": "ti_abb_init_timings"
+        },
+        "new_symbol": {
+            "ground_truth": "0",
+            "function": "new_symbol",
+            "description": "for the hash of exported symbol",
+            "id": "new_symbol"
+        },
+        "__split_and_process_non_flush": {
+            "ground_truth": "0",
+            "function": "__split_and_process_non_flush",
+            "description": "select the correct strategy for processing non flush bio",
+            "id": "__split_and_process_non_flush"
+        },
+        "init_global": {
+            "ground_truth": "0",
+            "function": "init_global",
+            "description": "initialize afu global register struct cxlflash cfg cfg internal structure associated with the host",
+            "id": "init_global"
+        },
+        "virtqueue_poll": {
+            "ground_truth": "0",
+            "function": "virtqueue_poll",
+            "description": "query pending used buffer return true if there are pending used buffer in the queue this doe not need to be serialized struct virtqueue vq the struct virtqueue we are talking about unsigned last used idx virtqueue state from call to virtqueue enable cb prepare",
+            "id": "virtqueue_poll"
+        },
+        "future_base_time": {
+            "ground_truth": "0",
+            "function": "future_base_time",
+            "description": "calculate the first base time in the future that satisfies this relationship future base time base time cycle time now or now base time cycle time because is an integer the ceiling value of the above ratio is in fact precisely the floor value of which is easier to calculate only having integer division tool",
+            "id": "future_base_time"
+        },
+        "asmlinkage": {
+            "ground_truth": "0",
+            "function": "asmlinkage",
+            "description": "the call to use to reach the firmware",
+            "id": "asmlinkage"
+        },
+        "gdb_serial_stub": {
+            "ground_truth": "0",
+            "function": "gdb_serial_stub",
+            "description": "gdbstub interface function",
+            "id": "gdb_serial_stub"
+        },
+        "hid_modify_dquirk": {
+            "ground_truth": "0",
+            "function": "hid_modify_dquirk",
+            "description": "if an dynamic quirk exists in memory for this device replace it quirk value with what wa provided otherwise add the quirk to the dynamic quirk list const struct hid device id id the hid device to match const unsigned long quirk the unsigned long quirk value to add replace ok error on failure",
+            "id": "hid_modify_dquirk"
+        },
+        "pkt_writable_track": {
+            "ground_truth": "0",
+            "function": "pkt_writable_track",
+            "description": "we can write to this track we can not",
+            "id": "pkt_writable_track"
+        },
+        "atomic_fetch_add_unless": {
+            "ground_truth": "0",
+            "function": "atomic_fetch_add_unless",
+            "description": "add unless the number is given value atomically add to so long a it wa not return the old value of atomic pointer of type atomic int the amount to add to int unless is equal to",
+            "id": "atomic_fetch_add_unless"
+        },
+        "qdio_start_irq": {
+            "ground_truth": "0",
+            "function": "qdio_start_irq",
+            "description": "enable interrupt processing for the device return code success irqs not started since new data is available struct ccw device cdev associated ccw device for the qdio subchannel",
+            "id": "qdio_start_irq"
+        },
+        "omap_crtc_dss_start_update": {
+            "ground_truth": "0",
+            "function": "omap_crtc_dss_start_update",
+            "description": "manager ops callback from output when they need to configure the upstream part of the video pipe",
+            "id": "omap_crtc_dss_start_update"
+        },
+        "asc_console_write": {
+            "ground_truth": "0",
+            "function": "asc_console_write",
+            "description": "print string to the serial port trying not to disturb any possible real use of the port",
+            "id": "asc_console_write"
+        },
+        "stop_crypto": {
+            "ground_truth": "0",
+            "function": "stop_crypto",
+            "description": "stop crypto deregister all the crypto algorithm with kernel this should be called once when the last device go down after this kernel will not call the driver api for crypto operation",
+            "id": "stop_crypto"
+        },
+        "close_connection": {
+            "ground_truth": "0",
+            "function": "close_connection",
+            "description": "close remote connection and tidy up",
+            "id": "close_connection"
+        },
+        "iscsit_set_datain_values_no_and_no": {
+            "ground_truth": "0",
+            "function": "iscsit_set_datain_values_no_and_no",
+            "description": "for normal and recovery datasequenceinorder no and datapduinorder no",
+            "id": "iscsit_set_datain_values_no_and_no"
+        },
+        "__pv_init_lock_hash": {
+            "ground_truth": "0",
+            "function": "__pv_init_lock_hash",
+            "description": "allocate memory for the pv qspinlock hash bucket this function should be called from the paravirt spinlock initialization routine",
+            "id": "__pv_init_lock_hash"
+        },
+        "cdns3_allocate_trb_pool": {
+            "ground_truth": "0",
+            "function": "cdns3_allocate_trb_pool",
+            "description": "allocates trb is pool for selected endpoint function will return on success or enomem on allocation error struct cdns3 endpoint priv ep endpoint object",
+            "id": "cdns3_allocate_trb_pool"
+        },
+        "csio_cplsw_intr_handler": {
+            "ground_truth": "0",
+            "function": "csio_cplsw_intr_handler",
+            "description": "cpl switch interrupt handler",
+            "id": "csio_cplsw_intr_handler"
+        },
+        "receive_chars": {
+            "ground_truth": "0",
+            "function": "receive_chars",
+            "description": "here start the interrupt handling routine all of the following subroutine are declared a inline and are folded into r interrupt they were separated out for readability is sake note r interrupt is fast interrupt which mean that it run with interrupt turned off people who may want to modify r interrupt should try to keep the interrupt handler a fast a possible after you are done making modification it is not bad idea to do gcc dkernel wall wstrict prototype o6 fomit frame pointer serial and look at the resulting assemble code in serial ted t tytso mit edu mar",
+            "id": "receive_chars"
+        },
+        "apbps2_of_probe": {
+            "ground_truth": "0",
+            "function": "apbps2_of_probe",
+            "description": "initialize one apbps2 p core",
+            "id": "apbps2_of_probe"
+        },
+        "amdgpu_ttm_gtt_read": {
+            "ground_truth": "0",
+            "function": "amdgpu_ttm_gtt_read",
+            "description": "linear read access to gtt memory struct file undescribed char user buf undescribed size size undescribed loff po undescribed",
+            "id": "amdgpu_ttm_gtt_read"
+        },
+        "lpfc_sli4_async_mbox_unblock": {
+            "ground_truth": "0",
+            "function": "lpfc_sli4_async_mbox_unblock",
+            "description": "block posting sli4 async mailbox command the function unblocks and resume posting of sli4 asynchronous mailbox command from the driver internal pending mailbox queue it make sure that there is no outstanding mailbox command before resuming posting asynchronous mailbox command if for any reason there is outstanding mailbox command it will try to wait it out before resuming asynchronous mailbox command posting struct lpfc hba phba pointer to hba context object",
+            "id": "lpfc_sli4_async_mbox_unblock"
+        },
+        "rio_local_read_config_16": {
+            "ground_truth": "0",
+            "function": "rio_local_read_config_16",
+            "description": "read bit from local configuration space read bit of data from the specified offset within the local device is configuration space struct rio mport port master port u32 offset offset into local configuration space u16 data pointer to read data into",
+            "id": "rio_local_read_config_16"
+        },
+        "early_get_page": {
+            "ground_truth": "0",
+            "function": "early_get_page",
+            "description": "this is only called until mem init is done",
+            "id": "early_get_page"
+        },
+        "mv78xx0_uart0_init": {
+            "ground_truth": "0",
+            "function": "mv78xx0_uart0_init",
+            "description": "",
+            "id": "mv78xx0_uart0_init"
+        },
+        "wdt_temp_read": {
+            "ground_truth": "0",
+            "function": "wdt_temp_read",
+            "description": "struct file file file handle to the watchdog board char user buf buffer to write byte into size count length of buffer loff ptr offset no seek allowed temp read report the temperature in degree fahrenheit the api is in farenheit it wa designed by an imperial measurement luddite",
+            "id": "wdt_temp_read"
+        },
+        "tcp_need_reset": {
+            "ground_truth": "0",
+            "function": "tcp_need_reset",
+            "description": "these state need rst on abort according to rfc793",
+            "id": "tcp_need_reset"
+        },
+        "sca_tx_done": {
+            "ground_truth": "0",
+            "function": "sca_tx_done",
+            "description": "transmit dma service",
+            "id": "sca_tx_done"
+        },
+        "ODM_RAInfo_Init_all": {
+            "ground_truth": "0",
+            "function": "ODM_RAInfo_Init_all",
+            "description": "end rate adaptive define",
+            "id": "ODM_RAInfo_Init_all"
+        },
+        "ice_vf_rebuild_vsi_with_release": {
+            "ground_truth": "0",
+            "function": "ice_vf_rebuild_vsi_with_release",
+            "description": "release and setup the vf is vsi this is only called when single vf is being reset vfr vflr host vf configuration change etc struct ice vf vf vf to release and setup the vsi for",
+            "id": "ice_vf_rebuild_vsi_with_release"
+        },
+        "omap_i2c_bus_setup": {
+            "ground_truth": "0",
+            "function": "omap_i2c_bus_setup",
+            "description": "process command line option for the i2c bus speed this function allow to override the default i2c bus speed for given i2c bus with command line option format i2c bus bus id clkrate in khz return on success otherwise char str string of option",
+            "id": "omap_i2c_bus_setup"
+        },
+        "uvd_v7_0_hw_init": {
+            "ground_truth": "0",
+            "function": "uvd_v7_0_hw_init",
+            "description": "start and test uvd block initialize the hardware boot up the vcpu and do some testing void handle undescribed",
+            "id": "uvd_v7_0_hw_init"
+        },
+        "xt_hashlimit_htable": {
+            "ground_truth": "0",
+            "function": "xt_hashlimit_htable",
+            "description": "used internally by the kernel",
+            "id": "xt_hashlimit_htable"
+        },
+        "bfa_fcs_rport_sm_plogi_retry": {
+            "ground_truth": "0",
+            "function": "bfa_fcs_rport_sm_plogi_retry",
+            "description": "plogi is sent",
+            "id": "bfa_fcs_rport_sm_plogi_retry"
+        },
+        "hdac_hdmi_get_port_len": {
+            "ground_truth": "0",
+            "function": "hdac_hdmi_get_port_len",
+            "description": "get the no device that can be connected to port on the pin widget",
+            "id": "hdac_hdmi_get_port_len"
+        },
+        "xudc_handle_setup": {
+            "ground_truth": "0",
+            "function": "xudc_handle_setup",
+            "description": "process the setup packet process setup packet and delegate to gadget layer struct xusb udc udc pointer to the usb device controller structure",
+            "id": "xudc_handle_setup"
+        },
+        "fail_rbio_index": {
+            "ground_truth": "0",
+            "function": "fail_rbio_index",
+            "description": "return eio if we had too many failure",
+            "id": "fail_rbio_index"
+        },
+        "warrior_disconnect": {
+            "ground_truth": "0",
+            "function": "warrior_disconnect",
+            "description": "warrior disconnect is the opposite of warrior connect",
+            "id": "warrior_disconnect"
+        },
+        "cxgb_is_neg_adv": {
+            "ground_truth": "0",
+            "function": "cxgb_is_neg_adv",
+            "description": "return whether cpl status conveys negative advice",
+            "id": "cxgb_is_neg_adv"
+        },
+        "smbd_post_send_page": {
+            "ground_truth": "0",
+            "function": "smbd_post_send_page",
+            "description": "send page page the page to send offset offset in the page to send size length in the page to send remaining data length remaining data to send in this payload",
+            "id": "smbd_post_send_page"
+        },
+        "hmm_bo_device_init": {
+            "ground_truth": "0",
+            "function": "hmm_bo_device_init",
+            "description": "hmm bo device function",
+            "id": "hmm_bo_device_init"
+        },
+        "kfr2r09_mode_pins": {
+            "ground_truth": "0",
+            "function": "kfr2r09_mode_pins",
+            "description": "return the board specific boot mode pin configuration",
+            "id": "kfr2r09_mode_pins"
+        },
+        "netdev_nway_reset": {
+            "ground_truth": "0",
+            "function": "netdev_nway_reset",
+            "description": "restart auto negotiation this function restarts the phy for auto negotiation return if successful otherwise an error code struct net device dev network device",
+            "id": "netdev_nway_reset"
+        },
+        "tape_std_mtcompression": {
+            "ground_truth": "0",
+            "function": "tape_std_mtcompression",
+            "description": "mtcompression used to enable compression set the idrc on off",
+            "id": "tape_std_mtcompression"
+        },
+        "afs_begin_vnode_operation": {
+            "ground_truth": "1",
+            "function": "afs_begin_vnode_operation",
+            "description": "begin an operation on the fileserver fileserver operation are serialised on the server by vnode so we serialise them here also using the io lock",
+            "id": "afs_begin_vnode_operation"
+        },
+        "init_iommu_all": {
+            "ground_truth": "0",
+            "function": "init_iommu_all",
+            "description": "iterates over all iommu entry in the acpi table allocates the iommu structure and initializes it with init iommu one",
+            "id": "init_iommu_all"
+        },
+        "bnxt_change_mtu": {
+            "ground_truth": "0",
+            "function": "bnxt_change_mtu",
+            "description": "rtnl lock held",
+            "id": "bnxt_change_mtu"
+        },
+        "subsys_virtual_register": {
+            "ground_truth": "0",
+            "function": "subsys_virtual_register",
+            "description": "register subsystem at sys device virtual all virtual subsystem have sys device system root device with the name of the subystem the root device can carry subsystem wide attribute all registered device are below this single root device there is no restriction on device naming this is for kernel software construct which need sysfs interface struct bus type subsys virtual subsystem const struct attribute group group default attribute for the root device",
+            "id": "subsys_virtual_register"
+        },
+        "get_usb_offset": {
+            "ground_truth": "0",
+            "function": "get_usb_offset",
+            "description": "macro and inline function to get important structure from ufs sb private info",
+            "id": "get_usb_offset"
+        },
+        "cgroup_init": {
+            "ground_truth": "0",
+            "function": "cgroup_init",
+            "description": "cgroup initialization register cgroup filesystem and proc file and initialize any subsystem that did not request early init void no argument",
+            "id": "cgroup_init"
+        },
+        "generic_pipe_buf_get": {
+            "ground_truth": "0",
+            "function": "generic_pipe_buf_get",
+            "description": "get reference to type struct pipe buffer this function grab an extra reference to buf it is used in in the tee system call when we duplicate the buffer in one pipe into another struct pipe inode info pipe the pipe that the buffer belongs to struct pipe buffer buf the buffer to get reference to",
+            "id": "generic_pipe_buf_get"
+        },
+        "usbat_write": {
+            "ground_truth": "0",
+            "function": "usbat_write",
+            "description": "write to register on the device",
+            "id": "usbat_write"
+        },
+        "mpic_msgr_enable": {
+            "ground_truth": "0",
+            "function": "mpic_msgr_enable",
+            "description": "enable message register the given message register is enabled for sending message msgr the message register to enable",
+            "id": "mpic_msgr_enable"
+        },
+        "vpfe_get_ccdc_image_format": {
+            "ground_truth": "0",
+            "function": "vpfe_get_ccdc_image_format",
+            "description": "vpfe get ccdc image format get image parameter based on ccdc setting",
+            "id": "vpfe_get_ccdc_image_format"
+        },
+        "configure_sge": {
+            "ground_truth": "0",
+            "function": "configure_sge",
+            "description": "program the various sge register however the engine is not yet enabled but sge sge control is setup and ready to go",
+            "id": "configure_sge"
+        },
+        "calculate_single_pcr": {
+            "ground_truth": "0",
+            "function": "calculate_single_pcr",
+            "description": "on this pmu all pic are programmed using single pcr calculate the combined control register value for such chip we require that all of the event have the same configuration so just fetch the setting from the first entry",
+            "id": "calculate_single_pcr"
+        },
+        "ia_css_set_csc_config": {
+            "ground_truth": "0",
+            "function": "ia_css_set_csc_config",
+            "description": "code generated by genparam gencode gen set function",
+            "id": "ia_css_set_csc_config"
+        },
+        "convert_to_gcda": {
+            "ground_truth": "0",
+            "function": "convert_to_gcda",
+            "description": "convert profiling data set to gcda file format return the number of byte that were would have been stored into the buffer char buffer the buffer to store file data or null if no data should be stored struct gcov info info profiling data set to be converted",
+            "id": "convert_to_gcda"
+        },
+        "omap3isp_ccp2_isr": {
+            "ground_truth": "0",
+            "function": "omap3isp_ccp2_isr",
+            "description": "omap3isp ccp2 isr handle isp ccp2 interrupt this will handle the ccp2 interrupt ccp2 pointer to isp ccp2 device",
+            "id": "omap3isp_ccp2_isr"
+        },
+        "xprt_create_transport": {
+            "ground_truth": "0",
+            "function": "xprt_create_transport",
+            "description": "create an rpc transport struct xprt create args rpc transport creation argument",
+            "id": "xprt_create_transport"
+        },
+        "v4l2_jpeg_parse_scan_header": {
+            "ground_truth": "0",
+            "function": "v4l2_jpeg_parse_scan_header",
+            "description": "parse scan header return or negative error if parsing failed void buf address of the scan header after the so marker size len length of the scan header struct v4l2 jpeg scan header scan header return the parsed scan header",
+            "id": "v4l2_jpeg_parse_scan_header"
+        },
+        "ib_destroy_srq_user": {
+            "ground_truth": "0",
+            "function": "ib_destroy_srq_user",
+            "description": "destroys the specified srq struct ib srq srq the srq to destroy struct ib udata udata valid user data or null for kernel object",
+            "id": "ib_destroy_srq_user"
+        },
+        "pcan_start_led_timer": {
+            "ground_truth": "0",
+            "function": "pcan_start_led_timer",
+            "description": "start timer which control led state",
+            "id": "pcan_start_led_timer"
+        },
+        "megasas_set_raidflag_cpu_affinity": {
+            "ground_truth": "0",
+            "function": "megasas_set_raidflag_cpu_affinity",
+            "description": "this function set the cpu affinity cpu of the controller and raid flag in the raid context based on io type struct fusion context fusion fusion context union raid context union praid context io raid context struct mr ld raid raid ld raid map bool fp possible is fast path possible u8 is read is read io u32 scsi buff len scsi command buffer length",
+            "id": "megasas_set_raidflag_cpu_affinity"
+        },
+        "amdgpu_vm_prt_fini": {
+            "ground_truth": "0",
+            "function": "amdgpu_vm_prt_fini",
+            "description": "finish all prt mapping register cleanup callback to disable prt support after vm dy struct amdgpu device adev amdgpu device pointer struct amdgpu vm vm requested vm",
+            "id": "amdgpu_vm_prt_fini"
+        },
+        "ipr_slave_destroy": {
+            "ground_truth": "0",
+            "function": "ipr_slave_destroy",
+            "description": "unconfigure scsi device return value nothing struct scsi device sdev scsi device struct",
+            "id": "ipr_slave_destroy"
+        },
+        "match_mux": {
+            "ground_truth": "0",
+            "function": "match_mux",
+            "description": "return function number if failure return negative value",
+            "id": "match_mux"
+        },
+        "ftrace_make_nop": {
+            "ground_truth": "0",
+            "function": "ftrace_make_nop",
+            "description": "convert code into nop this is very sensitive operation and great care need to be taken by the arch the operation should carefully read the location check to see if what is read is indeed what we expect it to be and then on success of the compare it should write to the location the code segment at rec ip should be caller to addr return must be on success efault on error reading the location einval on failed compare of the content eperm on error writing to the location any other value will be considered failure struct module mod module structure if called by module load initialization struct dyn ftrace rec the call site record mcount fentry unsigned long addr the address that the call site should be calling",
+            "id": "ftrace_make_nop"
+        },
+        "t4_intr_intx": {
+            "ground_truth": "0",
+            "function": "t4_intr_intx",
+            "description": "interrupt handler for legacy intx interrupt handle data event from sge response queue a well a error and other async event a they all use the same interrupt line",
+            "id": "t4_intr_intx"
+        },
+        "sdw_read": {
+            "ground_truth": "0",
+            "function": "sdw_read",
+            "description": "read sdw slave register struct sdw slave slave sdw slave u32 addr register address",
+            "id": "sdw_read"
+        },
+        "hw_cfg_wol_pme": {
+            "ground_truth": "0",
+            "function": "hw_cfg_wol_pme",
+            "description": "enable or disable wake on lan this routine is used to enable or disable wake on lan struct ksz hw hw the hardware instance int set the flag indicating whether to enable or disable",
+            "id": "hw_cfg_wol_pme"
+        },
+        "itm_read_data": {
+            "ground_truth": "0",
+            "function": "itm_read_data",
+            "description": "itm part",
+            "id": "itm_read_data"
+        },
+        "dscr_write_locked2": {
+            "ground_truth": "0",
+            "function": "dscr_write_locked2",
+            "description": "write to register protected by two lock register",
+            "id": "dscr_write_locked2"
+        },
+        "batadv_v_orig_dump": {
+            "ground_truth": "0",
+            "function": "batadv_v_orig_dump",
+            "description": "dump the originator into message struct sk buff msg netlink message to dump into struct netlink callback cb control block containing additional option struct batadv priv bat priv the bat priv with all the soft interface information struct batadv hard iface if outgoing limit dump to entry with this outgoing interface",
+            "id": "batadv_v_orig_dump"
+        },
+        "sys_copyarea": {
+            "ground_truth": "0",
+            "function": "sys_copyarea",
+            "description": "drawing operation where framebuffer is in system ram",
+            "id": "sys_copyarea"
+        },
+        "alloc_urbp": {
+            "ground_truth": "0",
+            "function": "alloc_urbp",
+            "description": "vudc dev",
+            "id": "alloc_urbp"
+        },
+        "dwarf_cfa_execute_insns": {
+            "ground_truth": "0",
+            "function": "dwarf_cfa_execute_insns",
+            "description": "execute instruction to calculate cfa unsigned char insn start address of the first instruction unsigned char insn end address of the last instruction struct dwarf cie cie the cie for this function struct dwarf fde fde the fde for this function struct dwarf frame frame the instruction calculate the cfa for this frame unsigned long pc the program counter of the address we are interested in execute the call frame instruction sequence starting at insn start and ending at insn end the instruction describe how to calculate the canonical frame address of stackframe store the result in frame",
+            "id": "dwarf_cfa_execute_insns"
+        },
+        "snd_vx_pcm_new": {
+            "ground_truth": "0",
+            "function": "snd_vx_pcm_new",
+            "description": "snd vx pcm new create and initialize pcm",
+            "id": "snd_vx_pcm_new"
+        },
+        "tlb_flush": {
+            "ground_truth": "0",
+            "function": "tlb_flush",
+            "description": "called at the end of mmu gather operation to make sure the tlb flush is completely done",
+            "id": "tlb_flush"
+        },
+        "sctp_auth_destroy_keys": {
+            "ground_truth": "0",
+            "function": "sctp_auth_destroy_keys",
+            "description": "destroy the entire key list this is done during the associon and endpoint free process",
+            "id": "sctp_auth_destroy_keys"
+        },
+        "ath5k_intr_calibration_poll": {
+            "ground_truth": "0",
+            "function": "ath5k_intr_calibration_poll",
+            "description": "interrupt handling",
+            "id": "ath5k_intr_calibration_poll"
+        },
+        "titan_dispatch_irqs": {
+            "ground_truth": "0",
+            "function": "titan_dispatch_irqs",
+            "description": "sys titan",
+            "id": "titan_dispatch_irqs"
+        },
+        "arm_smmu_evtq_thread": {
+            "ground_truth": "0",
+            "function": "arm_smmu_evtq_thread",
+            "description": "irq and event handler",
+            "id": "arm_smmu_evtq_thread"
+        },
+        "mptctl_reply": {
+            "ground_truth": "0",
+            "function": "mptctl_reply",
+            "description": "this is the callback for any message we have posted the message itself will be returned to the message pool when we return from the irq this run in irq context so be short and sweet",
+            "id": "mptctl_reply"
+        },
+        "shrink_slab": {
+            "ground_truth": "0",
+            "function": "shrink_slab",
+            "description": "shrink slab cache call the shrink function to age shrinkable cache nid is passed along to shrinkers with shrinker numa aware set unaware shrinkers will receive node id of instead memcg specifies the memory cgroup to target unaware shrinkers are called only if it is the root cgroup priority is sc priority we take the number of object and by priority in order to get the scan target return the number of reclaimed slab object gfp gfp mask allocation context int nid node whose slab cache to target struct mem cgroup memcg memory cgroup whose slab cache to target int priority the reclaim priority",
+            "id": "shrink_slab"
+        },
+        "pch_udc_ep_clear_rrdy": {
+            "ground_truth": "0",
+            "function": "pch_udc_ep_clear_rrdy",
+            "description": "clear the receive ready bit for the endpoint struct pch udc ep ep reference to structure of type pch udc ep regs",
+            "id": "pch_udc_ep_clear_rrdy"
+        },
+        "lx_dsp_get_version": {
+            "ground_truth": "0",
+            "function": "lx_dsp_get_version",
+            "description": "low level dsp access",
+            "id": "lx_dsp_get_version"
+        },
+        "get_utask": {
+            "ground_truth": "0",
+            "function": "get_utask",
+            "description": "allocate uprobe task object for the task if if necessary called when the thread hit breakpoint return pointer to new uprobe task on success null otherwise",
+            "id": "get_utask"
+        },
+        "tb_property_add_text": {
+            "ground_truth": "0",
+            "function": "tb_property_add_text",
+            "description": "add string property to directory function take copy of text and add it to the directory struct tb property dir parent directory to add the property const char key key for the property const char text string to add",
+            "id": "tb_property_add_text"
+        },
+        "decode_signedness": {
+            "ground_truth": "0",
+            "function": "decode_signedness",
+            "description": "signed unsigned",
+            "id": "decode_signedness"
+        },
+        "gic_of_init": {
+            "ground_truth": "0",
+            "function": "gic_of_init",
+            "description": "subdrivers that need some preparatory work can initialize their chip and call this to register their gics",
+            "id": "gic_of_init"
+        },
+        "megasas_alloc_fusion_context": {
+            "ground_truth": "0",
+            "function": "megasas_alloc_fusion_context",
+            "description": "allocate fusion context",
+            "id": "megasas_alloc_fusion_context"
+        },
+        "xlr_sgmii_init": {
+            "ground_truth": "0",
+            "function": "xlr_sgmii_init",
+            "description": "xlr port are rgmii xl port are sgmii mostly except the port0 which can be configured either sgmii or rgmii considered sgmii by default if board setup to rgmii the port type need to set accordingly serdes and pc layer need to configured for sgmii",
+            "id": "xlr_sgmii_init"
+        },
+        "wm_adsp_get_ctl": {
+            "ground_truth": "0",
+            "function": "wm_adsp_get_ctl",
+            "description": "find wm coeff ctl with input name a it subname if not found return null",
+            "id": "wm_adsp_get_ctl"
+        },
+        "od_alloc": {
+            "ground_truth": "0",
+            "function": "od_alloc",
+            "description": "sysfs end",
+            "id": "od_alloc"
+        },
+        "xdr_terminate_string": {
+            "ground_truth": "0",
+            "function": "xdr_terminate_string",
+            "description": "terminate string residing in an xdr buf struct xdr buf buf xdr buffer where string resides const u32 len length of string in byte",
+            "id": "xdr_terminate_string"
+        },
+        "cdns3_req_ep0_set_sel": {
+            "ground_truth": "0",
+            "function": "cdns3_req_ep0_set_sel",
+            "description": "handling of set sel standard usb request return if success error code on error struct cdns3 device priv dev extended gadget object struct usb ctrlrequest ctrl req pointer to received setup packet",
+            "id": "cdns3_req_ep0_set_sel"
+        },
+        "cik_cp_gfx_start": {
+            "ground_truth": "0",
+            "function": "cik_cp_gfx_start",
+            "description": "start the gfx ring enables the ring and load the clear state context and other packet required to init the ring return for success error for failure struct radeon device rdev radeon device pointer",
+            "id": "cik_cp_gfx_start"
+        },
+        "samsung_pm_save_gpios": {
+            "ground_truth": "0",
+            "function": "samsung_pm_save_gpios",
+            "description": "save the state of the gpios for restoring after sleep save the gpio state for resotration on resume see samsung pm restore gpios void no argument",
+            "id": "samsung_pm_save_gpios"
+        },
+        "stb0899_dvbs2_algo": {
+            "ground_truth": "0",
+            "function": "stb0899_dvbs2_algo",
+            "description": "stb0899 dvbs2 algo search for signal timing carrier and data for given frequency in given range",
+            "id": "stb0899_dvbs2_algo"
+        },
+        "amdgpu_amdkfd_gpuvm_init_mem_limits": {
+            "ground_truth": "0",
+            "function": "amdgpu_amdkfd_gpuvm_init_mem_limits",
+            "description": "set memory usage limit current limit are system ttm userptr memory 16th system ram ttm memory 8th system ram",
+            "id": "amdgpu_amdkfd_gpuvm_init_mem_limits"
+        },
+        "vxge_hw_device_debug_set": {
+            "ground_truth": "0",
+            "function": "vxge_hw_device_debug_set",
+            "description": "vxge hw device debug set set the debug module level and timestamp this routine is used to dynamically change the debug output",
+            "id": "vxge_hw_device_debug_set"
+        },
+        "msix_capability_init": {
+            "ground_truth": "0",
+            "function": "msix_capability_init",
+            "description": "configure device is msi capability setup the msi capability structure of device function with single msi irq return of zero indicates the successful setup of requested msi entry with allocated irqs or non zero for otherwise struct pci dev dev pointer to the pci dev data structure of msi device function struct msix entry entry pointer to an array of struct msix entry entry int nvec number of entry struct irq affinity affd optional pointer to enable automatic affinity assignment",
+            "id": "msix_capability_init"
+        },
+        "ubifs_add_bud": {
+            "ground_truth": "0",
+            "function": "ubifs_add_bud",
+            "description": "add bud leb to the tree of bud and it journal head list struct ubifs info ubifs file system description object struct ubifs bud bud the bud to add",
+            "id": "ubifs_add_bud"
+        },
+        "usb_role_switch_get_drvdata": {
+            "ground_truth": "0",
+            "function": "usb_role_switch_get_drvdata",
+            "description": "get the private data pointer of switch struct usb role switch sw usb role switch",
+            "id": "usb_role_switch_get_drvdata"
+        },
+        "atl1c_write_phy_core": {
+            "ground_truth": "0",
+            "function": "atl1c_write_phy_core",
+            "description": "atl1c write phy core core function to write to register in phy via mdio control register ext extension register see ieee dev device address see ieee devad prtad is fixed to reg reg to write",
+            "id": "atl1c_write_phy_core"
+        },
+        "phys_pud_init": {
+            "ground_truth": "0",
+            "function": "phys_pud_init",
+            "description": "create pud level page table mapping for physical address the virtual and physical address do not have to be aligned at this level kaslr can randomize virtual address up to this level it return the last physical address mapped",
+            "id": "phys_pud_init"
+        },
+        "ath9k_cmn_get_channel": {
+            "ground_truth": "0",
+            "function": "ath9k_cmn_get_channel",
+            "description": "get the internal channel reference",
+            "id": "ath9k_cmn_get_channel"
+        },
+        "usbat_wait_not_busy": {
+            "ground_truth": "0",
+            "function": "usbat_wait_not_busy",
+            "description": "block waiting for an ata device to become not busy or to report an error condition",
+            "id": "usbat_wait_not_busy"
+        },
+        "esw_acl_ingress_ofld_cleanup": {
+            "ground_truth": "0",
+            "function": "esw_acl_ingress_ofld_cleanup",
+            "description": "eswitch acl ingres external apis",
+            "id": "esw_acl_ingress_ofld_cleanup"
+        },
+        "mpi_ssp_event": {
+            "ground_truth": "0",
+            "function": "mpi_ssp_event",
+            "description": "see the comment for mpi ssp completion",
+            "id": "mpi_ssp_event"
+        },
+        "_cxlflash_vlun_resize": {
+            "ground_truth": "0",
+            "function": "_cxlflash_vlun_resize",
+            "description": "change the size of virtual lun on successful return the user is informed of the new size in block of the virtual lun in last lba format when the size of the virtual lun is zero the last lba is reflected a see comment in the prologue for cxlflash disk release regarding afu syncs and context on the error recovery list struct scsi device sdev scsi device associated with lun owning virtual lun struct ctx info ctxi context owning resource struct dk cxlflash resize resize resize ioctl data structure on success errno on failure",
+            "id": "_cxlflash_vlun_resize"
+        },
+        "download_data": {
+            "ground_truth": "0",
+            "function": "download_data",
+            "description": "write the frame data into adapter is buffer memory and calculate crc do padding if necessary",
+            "id": "download_data"
+        },
+        "vc5_mux_get_parent": {
+            "ground_truth": "0",
+            "function": "vc5_mux_get_parent",
+            "description": "versaclock5 input multiplexer between xtal and clkin divider",
+            "id": "vc5_mux_get_parent"
+        },
+        "mlxreg_hotplug_work_handler": {
+            "ground_truth": "0",
+            "function": "mlxreg_hotplug_work_handler",
+            "description": "mlxreg hotplug work handler performs traversing of device interrupt register according to the below hierarchy schema aggregation register status mask psu register status event mask power register status event mask fan register cpu status event mask asic register status event mask in case some system changed are detected fan in out psu in out power cable attached detached asic health good bad relevant device is created or destroyed",
+            "id": "mlxreg_hotplug_work_handler"
+        },
+        "sfi_acpi_parse_xsdt": {
+            "ground_truth": "0",
+            "function": "sfi_acpi_parse_xsdt",
+            "description": "sfi acpi parse xsdt parse the acpi xsdt for later access by sfi acpi table parse",
+            "id": "sfi_acpi_parse_xsdt"
+        },
+        "ath6kl_indicate_tx_activity": {
+            "ground_truth": "0",
+            "function": "ath6kl_indicate_tx_activity",
+            "description": "indicate tx activity or inactivity on wmi stream",
+            "id": "ath6kl_indicate_tx_activity"
+        },
+        "tx_avail": {
+            "ground_truth": "0",
+            "function": "tx_avail",
+            "description": "number of list element available for next tx",
+            "id": "tx_avail"
+        },
+        "pblk_rb_copy_to_bio": {
+            "ground_truth": "0",
+            "function": "pblk_rb_copy_to_bio",
+            "description": "copy to bio only if the lba match the one on the given cache entry otherwise it mean that the entry ha been overwritten and the bio should be directed to disk",
+            "id": "pblk_rb_copy_to_bio"
+        },
+        "xilinx_dpdma_chan_dump_tx_desc": {
+            "ground_truth": "0",
+            "function": "xilinx_dpdma_chan_dump_tx_desc",
+            "description": "dump tx descriptor dump content of tx descriptor struct xilinx dpdma chan chan dpdma channel struct xilinx dpdma tx desc tx desc tx descriptor to dump",
+            "id": "xilinx_dpdma_chan_dump_tx_desc"
+        },
+        "_wacom_query_tablet_data": {
+            "ground_truth": "0",
+            "function": "_wacom_query_tablet_data",
+            "description": "switch the tablet into it most capable mode wacom tablet are typically configured to power up in mode which sends mouse like report to the o to get absolute position pressure data etc from the tablet it is necessary to switch the tablet out of this mode and into one which sends the full range of tablet data",
+            "id": "_wacom_query_tablet_data"
+        },
+        "orion5x_xor_init": {
+            "ground_truth": "0",
+            "function": "orion5x_xor_init",
+            "description": "xor engine",
+            "id": "orion5x_xor_init"
+        },
+        "show_temp3_beep": {
+            "ground_truth": "0",
+            "function": "show_temp3_beep",
+            "description": "the w83781d ha single beep bit for temp2 and temp3",
+            "id": "show_temp3_beep"
+        },
+        "strcmp": {
+            "ground_truth": "0",
+            "function": "strcmp",
+            "description": "compare two string return if s1 and s2 are equal if s1 is le than s2 if s1 is greater than s2 const char s1 one string const char s2 another string",
+            "id": "strcmp"
+        },
+        "regs_query_register_offset": {
+            "ground_truth": "0",
+            "function": "regs_query_register_offset",
+            "description": "query register offset from it name regs query register offset return the offset of register in struct pt regs from it name if the name is invalid this return einval const char name the name of register",
+            "id": "regs_query_register_offset"
+        },
+        "imgu_css_scaler_setup_lut": {
+            "ground_truth": "0",
+            "function": "imgu_css_scaler_setup_lut",
+            "description": "set up the cs scaler look up table",
+            "id": "imgu_css_scaler_setup_lut"
+        },
+        "acpi_hw_process_pci_list": {
+            "ground_truth": "0",
+            "function": "acpi_hw_process_pci_list",
+            "description": "function acpi hw process pci list parameter pci id initial value for the pci id may be modified by this function list head device list created by acpi hw build pci list return status description walk downward through the pci device list getting the device info for each via the pci configuration space and updating the pci id a necessary deletes the list during traversal",
+            "id": "acpi_hw_process_pci_list"
+        },
+        "resp_report_luns": {
+            "ground_truth": "0",
+            "function": "resp_report_luns",
+            "description": "even though each pseudo target ha report luns well known logical unit lun the normal linux scanning logic doe not associate it with device dev sg7 the following magic will make that association cd sys class scsi host host echo scan where is host number if there are multiple target in host then the above will associate lun to each target to only get lun for target then use echo scan",
+            "id": "resp_report_luns"
+        },
+        "tcp_prune_queue": {
+            "ground_truth": "0",
+            "function": "tcp_prune_queue",
+            "description": "reduce allocated memory if we can trying to get the socket within it memory limit again return le than zero if we should start dropping frame until the socket owning process read some of the data to stabilize the situation",
+            "id": "tcp_prune_queue"
+        },
+        "skb_txq": {
+            "ground_truth": "0",
+            "function": "skb_txq",
+            "description": "return the tx queue an offload packet should use const struct sk buff skb the packet return the tx queue an offload packet should use a indicated by bit in the packet is queue mapping",
+            "id": "skb_txq"
+        },
+        "bq27xxx_battery_read_energy": {
+            "ground_truth": "0",
+            "function": "bq27xxx_battery_read_energy",
+            "description": "return the battery available energy in uwh or if something fails",
+            "id": "bq27xxx_battery_read_energy"
+        },
+        "ecm_bind": {
+            "ground_truth": "0",
+            "function": "ecm_bind",
+            "description": "ethernet function driver setup binding",
+            "id": "ecm_bind"
+        },
+        "fwnode_get_name": {
+            "ground_truth": "0",
+            "function": "fwnode_get_name",
+            "description": "return the name of node return pointer to the node name const struct fwnode handle fwnode the firmware node",
+            "id": "fwnode_get_name"
+        },
+        "htc_get_credit_alloc": {
+            "ground_truth": "0",
+            "function": "htc_get_credit_alloc",
+            "description": "htc service function",
+            "id": "htc_get_credit_alloc"
+        },
+        "efx_net_stats": {
+            "ground_truth": "0",
+            "function": "efx_net_stats",
+            "description": "context process dev base lock or rtnl held non blocking",
+            "id": "efx_net_stats"
+        },
+        "fw_mgmt_open": {
+            "ground_truth": "0",
+            "function": "fw_mgmt_open",
+            "description": "char device fop",
+            "id": "fw_mgmt_open"
+        },
+        "watchdog_init": {
+            "ground_truth": "0",
+            "function": "watchdog_init",
+            "description": "watchdog init module initialiser scan for suitable watchdog and if so initialize it return an error if we cannot the error cause the module to unload",
+            "id": "watchdog_init"
+        },
+        "hda_set_mach_params": {
+            "ground_truth": "0",
+            "function": "hda_set_mach_params",
+            "description": "machine driver select",
+            "id": "hda_set_mach_params"
+        },
+        "p9100_setcolreg": {
+            "ground_truth": "0",
+            "function": "p9100_setcolreg",
+            "description": "optional function set color register unsigned regno boolean copy local get user function unsigned red frame buffer colormap structure unsigned green the green value which can be up to bit wide unsigned blue the blue value which can be up to bit wide unsigned transp if supported the alpha value which can be up to bit wide struct fb info info frame buffer info structure",
+            "id": "p9100_setcolreg"
+        },
+        "ring_buffer_discard_commit": {
+            "ground_truth": "0",
+            "function": "ring_buffer_discard_commit",
+            "description": "discard an event that ha not been committed sometimes an event that is in the ring buffer need to be ignored this function let the user discard an event in the ring buffer and then that event will not be read later this function only work if it is called before the item ha been committed it will try to free the event from the ring buffer if another event ha not been added behind it if another event ha been added behind it it will set the event up a discarded and perform the commit if this function is called do not call ring buffer unlock commit on the event struct trace buffer buffer the ring buffer struct ring buffer event event non committed event to discard",
+            "id": "ring_buffer_discard_commit"
+        },
+        "ima_keys_handler": {
+            "ground_truth": "0",
+            "function": "ima_keys_handler",
+            "description": "this worker function free key that may still be queued up in case custom ima policy wa not loaded",
+            "id": "ima_keys_handler"
+        },
+        "ip6mr_update_thresholds": {
+            "ground_truth": "1",
+            "function": "ip6mr_update_thresholds",
+            "description": "fill oifs list it is called under write locked mrt lock",
+            "id": "ip6mr_update_thresholds"
+        },
+        "sg_init_fuse_args": {
+            "ground_truth": "0",
+            "function": "sg_init_fuse_args",
+            "description": "add args to scatter gather list and return number of element used",
+            "id": "sg_init_fuse_args"
+        },
+        "sxgbe_core_init": {
+            "ground_truth": "0",
+            "function": "sxgbe_core_init",
+            "description": "mac core initialization",
+            "id": "sxgbe_core_init"
+        },
+        "gpiochip_line_is_persistent": {
+            "ground_truth": "0",
+            "function": "gpiochip_line_is_persistent",
+            "description": "sleep persistence inquiry for driver",
+            "id": "gpiochip_line_is_persistent"
+        },
+        "ceph_mmap": {
+            "ground_truth": "0",
+            "function": "ceph_mmap",
+            "description": "",
+            "id": "ceph_mmap"
+        },
+        "hgsmi_report_flags_location": {
+            "ground_truth": "0",
+            "function": "hgsmi_report_flags_location",
+            "description": "struct gen pool ctx the context of the guest heap to use u32 location the offset chosen for the flag within guest vram or negative errno value",
+            "id": "hgsmi_report_flags_location"
+        },
+        "snd_seq_oss_write": {
+            "ground_truth": "0",
+            "function": "snd_seq_oss_write",
+            "description": "write interface",
+            "id": "snd_seq_oss_write"
+        },
+        "rpc_init_task": {
+            "ground_truth": "0",
+            "function": "rpc_init_task",
+            "description": "creation and deletion of rpc task structure",
+            "id": "rpc_init_task"
+        },
+        "snd_sof_pcm_platform_pointer": {
+            "ground_truth": "0",
+            "function": "snd_sof_pcm_platform_pointer",
+            "description": "host stream pointer",
+            "id": "snd_sof_pcm_platform_pointer"
+        },
+        "topology_mnest_limit": {
+            "ground_truth": "0",
+            "function": "topology_mnest_limit",
+            "description": "return the maximum nesting level supported by the cpu topology code the current maximum level is which is the drawer level",
+            "id": "topology_mnest_limit"
+        },
+        "proc_salinfo_show": {
+            "ground_truth": "0",
+            "function": "proc_salinfo_show",
+            "description": "wouldata contains an integer that corresponds to the feature we are testing",
+            "id": "proc_salinfo_show"
+        },
+        "il_set_swq_id": {
+            "ground_truth": "0",
+            "function": "il_set_swq_id",
+            "description": "we have bit used like this ac queue hw queue id unused",
+            "id": "il_set_swq_id"
+        },
+        "sst_parse_fw_memcpy": {
+            "ground_truth": "0",
+            "function": "sst_parse_fw_memcpy",
+            "description": "parse the firmware image populate the list for memcpy struct intel sst drv ctx pointer to drv context unsigned long size size of the firmware struct list head fw list pointer to list head to be populated this function par the fw image and save the parsed image in the list for memcpy",
+            "id": "sst_parse_fw_memcpy"
+        },
+        "disable_kick": {
+            "ground_truth": "0",
+            "function": "disable_kick",
+            "description": "host side",
+            "id": "disable_kick"
+        },
+        "__generic_file_fsync": {
+            "ground_truth": "1",
+            "function": "__generic_file_fsync",
+            "description": "generic fsync implementation for simple filesystems this is generic implementation of the fsync method for simple filesystems which track all non inode metadata in the buffer list hanging off the address space structure struct file file file to synchronize loff start start offset in byte loff end end offset in byte inclusive int datasync only synchronize essential metadata if true",
+            "id": "__generic_file_fsync"
+        },
+        "is_zero_ether_addr": {
+            "ground_truth": "0",
+            "function": "is_zero_ether_addr",
+            "description": "determine if give ethernet address is all zero return true if the address is all zero please note addr must be aligned to u16 const u8 addr pointer to six byte array containing the ethernet address",
+            "id": "is_zero_ether_addr"
+        },
+        "MACvRestoreContext": {
+            "ground_truth": "0",
+            "function": "MACvRestoreContext",
+            "description": "description restore mac register from context buffer parameter in io base base address for mac cxt buf context buffer out none return value none",
+            "id": "MACvRestoreContext"
+        },
+        "snd_seq_timer_delete": {
+            "ground_truth": "0",
+            "function": "snd_seq_timer_delete",
+            "description": "delete timer destructor",
+            "id": "snd_seq_timer_delete"
+        },
+        "i40iw_sc_cq_modify": {
+            "ground_truth": "0",
+            "function": "i40iw_sc_cq_modify",
+            "description": "modify completion queue struct i40iw sc cq cq cq struct struct i40iw modify cq info info modification info struct u64 scratch undescribed bool post sq flag to post to sq",
+            "id": "i40iw_sc_cq_modify"
+        },
+        "ipr_is_scsi_disk": {
+            "ground_truth": "1",
+            "function": "ipr_is_scsi_disk",
+            "description": "determine if resource is scsi disk return value if scsi disk if not scsi disk struct ipr resource entry re resource entry struct",
+            "id": "ipr_is_scsi_disk"
+        },
+        "vpfe_isr": {
+            "ground_truth": "0",
+            "function": "vpfe_isr",
+            "description": "isr for vint0",
+            "id": "vpfe_isr"
+        },
+        "inode_permission": {
+            "ground_truth": "0",
+            "function": "inode_permission",
+            "description": "check for accessright to given inode",
+            "id": "inode_permission"
+        },
+        "_sba_abort_request": {
+            "ground_truth": "1",
+            "function": "_sba_abort_request",
+            "description": "note must be called with sba reqs lock held",
+            "id": "_sba_abort_request"
+        },
+        "pdev_bad_for_parity": {
+            "ground_truth": "0",
+            "function": "pdev_bad_for_parity",
+            "description": "if the bus contains any of these device then we must not turn on parity checking of any kind currently this is cyberpro 20x0 only",
+            "id": "pdev_bad_for_parity"
+        },
+        "cpuidle_state_file_exists": {
+            "ground_truth": "1",
+            "function": "cpuidle_state_file_exists",
+            "description": "helper function to check whether file under cpux cpuidle statex dir exists for example the functionality to disable state wa introduced in later kernel version this function can be used to explicitly check for this feature return if the file exists otherwise",
+            "id": "cpuidle_state_file_exists"
+        },
+        "spufs_rmdir": {
+            "ground_truth": "1",
+            "function": "spufs_rmdir",
+            "description": "caller must hold parent mutex",
+            "id": "spufs_rmdir"
+        },
+        "ab8500_charger_usb_cv": {
+            "ground_truth": "1",
+            "function": "ab8500_charger_usb_cv",
+            "description": "check if the usb charger is in cv mode return ac charger cv mode on success else error code struct ab8500 charger di pointer to the ab8500 charger structure",
+            "id": "ab8500_charger_usb_cv"
+        },
+        "igc_has_link": {
+            "ground_truth": "1",
+            "function": "igc_has_link",
+            "description": "check shared code for link and determine up down struct igc adapter adapter pointer to driver private info",
+            "id": "igc_has_link"
+        },
+        "amdgpu_ras_is_supported": {
+            "ground_truth": "1",
+            "function": "amdgpu_ras_is_supported",
+            "description": "check if ra is supported on block say sdma gfx",
+            "id": "amdgpu_ras_is_supported"
+        },
+        "__aafs_ns_mkdir": {
+            "ground_truth": "1",
+            "function": "__aafs_ns_mkdir",
+            "description": "requires n lock held",
+            "id": "__aafs_ns_mkdir"
+        },
+        "ovl_cleanup_and_whiteout": {
+            "ground_truth": "1",
+            "function": "ovl_cleanup_and_whiteout",
+            "description": "caller must hold mutex on both workdir and dir",
+            "id": "ovl_cleanup_and_whiteout"
+        },
+        "i2c_trylock_bus": {
+            "ground_truth": "1",
+            "function": "i2c_trylock_bus",
+            "description": "try to get exclusive access to an i2c bus segment struct i2c adapter adapter target i2c bus segment unsigned int flag i2c lock root adapter try to lock the root i2c adapter i2c lock segment try to lock only this branch in the adapter tree true if the i2c bus segment is locked false otherwise",
+            "id": "i2c_trylock_bus"
+        }
+    }
+}
