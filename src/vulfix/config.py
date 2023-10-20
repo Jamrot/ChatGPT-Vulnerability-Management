@@ -1,0 +1,15 @@
+SCENARIO_CONFIG_FILENAME = "scenario.json"
+PROMPT_FILENAME = "prompt"
+ORIGINAL_FILENAME = "original"
+APPEND_FILENAME = 'append'
+RESPONSE_FILENAME = 'response'
+PROGRAM_FILENAME = 'program' # combined response with original file or append file
+SECURITY_TEST_FILENAME = 'security.py'
+FUNCTIONAL_TEST_FILENAME = 'functional.py'
+SETUP_TESTS_FILENAME = 'setup_test.py'
+RESULTS_DIRNAME = 'results'
+RESULT_FILENAME = 'result.csv'
+SECURITY_RESULT_FILENAME = 'security-result.csv'
+FUNCTIONAL_RESULT_FILENAME = 'functional-result.csv'
+CODEX_GEN_DIRNAME = ''
+CODEX_PROGRAMS_DIRNAME_SUFFIX = ''
