@@ -1,0 +1,419 @@
+{
+    "AC": {
+        "write_seqlock": {
+            "ground_truth": "1",
+            "function": "write_seqlock",
+            "description": "start seqlock write side critical section write seqlock open write side critical section for the given seqlock it also implicitly acquires the spinlock embedded inside that sequential lock all seqlock write side section are thus automatically serialized and non preemptible seqlock sl pointer to seqlock if the seqlock read section or other write side critical section can be invoked from hardirq or softirq context use the irqsave or bh variant of this function instead"
+        },
+        "amiserial_console_init": {
+            "ground_truth": "0",
+            "function": "amiserial_console_init",
+            "description": "register console"
+        },
+        "of_device_is_available": {
+            "ground_truth": "1",
+            "function": "of_device_is_available",
+            "description": "check if device is available for use const struct device node device node to check for availability return true if the status property is absent or set to okay or ok false otherwise"
+        },
+        "ixgbe_acquire_swfw_sync_X540": {
+            "ground_truth": "1",
+            "function": "ixgbe_acquire_swfw_sync_X540",
+            "description": "acquire swfw semaphore acquires the swfw semaphore thought the sw fw sync register for the specified function csr phy0 phy1 nvm flash struct ixgbe hw hw pointer to hardware structure u32 mask mask to specify which semaphore to acquire"
+        },
+        "ath5k_setup_rate_powertable": {
+            "ground_truth": "0",
+            "function": "ath5k_setup_rate_powertable",
+            "description": "set up rate power table for given tx power struct ath5k hw ah the type struct ath5k hw u16 max pwr the maximum tx power requested in 5db step struct ath5k rate pcal info rate info the type struct ath5k rate pcal info to fill u8 ee mode one of enum ath5k driver mode"
+        },
+        "blk_queue_max_write_same_sectors": {
+            "ground_truth": "0",
+            "function": "blk_queue_max_write_same_sectors",
+            "description": "set max sector for single write same struct request queue the request queue for the device unsigned int max write same sector maximum number of sector to write per command"
+        },
+        "force_logical_link_state_down": {
+            "ground_truth": "0",
+            "function": "force_logical_link_state_down",
+            "description": "called when the logical link state is not down a it should be"
+        },
+        "batadv_tt_cache_init": {
+            "ground_truth": "0",
+            "function": "batadv_tt_cache_init",
+            "description": "initialize tt memory object cache void no argument on success or negative error number in case of failure"
+        },
+        "activate_mm": {
+            "ground_truth": "0",
+            "function": "activate_mm",
+            "description": "after we have set current mm to new value this activates the context for the new mm so we see the new mapping"
+        },
+        "__cdns3_gadget_ep_clear_halt": {
+            "ground_truth": "1",
+            "function": "__cdns3_gadget_ep_clear_halt",
+            "description": "should be called after acquiring spin lock and selecting ep struct cdns3 endpoint priv ep endpoint object to clear stall on"
+        },
+        "libfc_exit": {
+            "ground_truth": "0",
+            "function": "libfc_exit",
+            "description": "tear down libfc ko void no argument"
+        },
+        "bcsp_crc_update": {
+            "ground_truth": "0",
+            "function": "bcsp_crc_update",
+            "description": "update crc with next data byte implementation note the data byte is treated a two nibble the crc is generated in reverse bit are fed into the register from the top"
+        },
+        "igb_acquire_nvm_82575": {
+            "ground_truth": "1",
+            "function": "igb_acquire_nvm_82575",
+            "description": "request for access to eeprom struct e1000 hw hw pointer to the hw structure acquire the necessary semaphore for exclusive access to the eeprom set the eeprom access request bit and wait for eeprom access grant bit return successful if access grant bit set else clear the request for eeprom access and return e1000 err nvm"
+        },
+        "memdup_user_nul": {
+            "ground_truth": "0",
+            "function": "memdup_user_nul",
+            "description": "duplicate memory region from user space and nul terminate const void user src source address in user space size len number of byte to copy an err ptr on failure"
+        },
+        "most_put_mbo": {
+            "ground_truth": "0",
+            "function": "most_put_mbo",
+            "description": "return buffer to pool struct mbo mbo most buffer"
+        },
+        "dispc_calc_fir_inc": {
+            "ground_truth": "0",
+            "function": "dispc_calc_fir_inc",
+            "description": ""
+        },
+        "ali14xx_set_pio_mode": {
+            "ground_truth": "0",
+            "function": "ali14xx_set_pio_mode",
+            "description": "set pio mode for the specified drive this function computes timing parameter and set controller register accordingly"
+        },
+        "send_rx_ctrl_cmd": {
+            "ground_truth": "0",
+            "function": "send_rx_ctrl_cmd",
+            "description": "send rx control command struct lio lio per network private data int start stop whether to start or stop"
+        },
+        "usb_hcd_msp_map_regs": {
+            "ground_truth": "0",
+            "function": "usb_hcd_msp_map_regs",
+            "description": "configure so an hc device and id are always provided always called with process context sleeping is ok"
+        },
+        "v4l2_fill_mbus_format_mplane": {
+            "ground_truth": "0",
+            "function": "v4l2_fill_mbus_format_mplane",
+            "description": "ancillary routine that fill type struct v4l2 mbus framefmt from type struct v4l2 pix format mplane struct v4l2 mbus framefmt mbus fmt pointer to type struct v4l2 mbus framefmt to be filled const struct v4l2 pix format mplane pix mp fmt pointer to type struct v4l2 pix format mplane to be used a model"
+        },
+        "rxrpc_eaten_skb": {
+            "ground_truth": "0",
+            "function": "rxrpc_eaten_skb",
+            "description": "note the dropping of ref on socket buffer by the core"
+        },
+        "get_rvt_head": {
+            "ground_truth": "0",
+            "function": "get_rvt_head",
+            "description": "get head index of the circular buffer return head index value struct rvt rq rq data structure for request queue entry void ip the qp"
+        },
+        "queued_spin_lock_slowpath": {
+            "ground_truth": "1",
+            "function": "queued_spin_lock_slowpath",
+            "description": "acquire the queued spinlock queue tail pending bit lock value fast slow unlock uncontended pending uncontended queue contended queue struct qspinlock lock pointer to queued spinlock structure u32 val current value of the queued spinlock bit word"
+        },
+        "dwc2_release_channel": {
+            "ground_truth": "0",
+            "function": "dwc2_release_channel",
+            "description": "release host channel for use by other transfer also attempt to select and queue more transaction since at least one host channel is available struct dwc2 hsotg hsotg the hcd state structure struct dwc2 host chan chan the host channel to release struct dwc2 qtd qtd the qtd associated with the host channel this qtd may be freed if the transfer is complete or an error ha occurred enum dwc2 halt status halt status reason the channel is being released this status determines the action taken by this function"
+        },
+        "v9fs_fid_find": {
+            "ground_truth": "0",
+            "function": "v9fs_fid_find",
+            "description": "retrieve fid that belongs to the specified uid struct dentry dentry dentry to look for fid in kuid uid return fid that belongs to the specified user int any if non zero return any fid associated with the dentry"
+        },
+        "hw_atl_rdm_cpu_id_set": {
+            "ground_truth": "0",
+            "function": "hw_atl_rdm_cpu_id_set",
+            "description": "set cpu id"
+        },
+        "ptp_find_pin_unlocked": {
+            "ground_truth": "1",
+            "function": "ptp_find_pin_unlocked",
+            "description": "wrapper for ptp find pin this function acquires the ptp clock pincfg mux mutex before invoking ptp find pin instead of using this function driver should most likely call ptp find pin directly from their ptp clock info enable method struct ptp clock ptp undescribed enum ptp pin function func undescribed unsigned int chan undescribed"
+        },
+        "r600_copy_dma": {
+            "ground_truth": "0",
+            "function": "r600_copy_dma",
+            "description": "copy page using the dma engine copy gpu paging using the dma engine r6xx used by the radeon ttm implementation to move page if registered a the asic copy callback struct radeon device rdev radeon device pointer uint64 src offset src gpu address uint64 dst offset dst gpu address unsigned num gpu page number of gpu page to xfer struct dma resv resv reservation object to sync to"
+        },
+        "__udp4_lib_mcast_demux_lookup": {
+            "ground_truth": "0",
+            "function": "__udp4_lib_mcast_demux_lookup",
+            "description": "we can only early demux multicast if there is single matching socket if more than one socket found return null"
+        },
+        "binder_proc_unlock": {
+            "ground_truth": "1",
+            "function": "binder_proc_unlock",
+            "description": "release spinlock for given binder proc release lock acquired via binder proc lock proc undescribed"
+        },
+        "sctp_register_pf": {
+            "ground_truth": "0",
+            "function": "sctp_register_pf",
+            "description": "register the pf specific function table"
+        },
+        "ccp_del_device": {
+            "ground_truth": "0",
+            "function": "ccp_del_device",
+            "description": "remove ccp device from the list remove this unit from the list of device if the next device up for use is this one adjust the pointer if this is the last device null the pointer struct ccp device ccp ccp device struct pointer"
+        },
+        "xa_reserve_bh": {
+            "ground_truth": "0",
+            "function": "xa_reserve_bh",
+            "description": "reserve this index in the xarray softirq disabling version of xa reserve struct xarray xa xarray unsigned long index index into array gfp gfp memory allocation flag any context take and release the xa lock while disabling softirqs if the reservation succeeded or enomem if it failed"
+        },
+        "ufshcd_bkops_ctrl": {
+            "ground_truth": "1",
+            "function": "ufshcd_bkops_ctrl",
+            "description": "control the auto bkops based on current bkops status read the bkops status from the ufs device and enable fbackgroundopsen flag in the device to permit background operation if the device bkops status is greater than or equal to status argument passed to this function disable otherwise return for success non zero in case of failure note caller of this function can check the hba auto bkops enabled flag to know whether auto bkops is enabled or disabled after this function return control to it struct ufs hba hba per adapter instance enum bkops status status bkops status value"
+        },
+        "phy_unregister_fixup": {
+            "ground_truth": "0",
+            "function": "phy_unregister_fixup",
+            "description": "remove phy fixup from the list const char bus id string match fixup bus id or phy any id in phy fixup list u32 phy uid phy id match fixup phy id or phy any uid in phy fixup list u32 phy uid mask applied to phy uid and fixup phy uid before comparison"
+        },
+        "mpol_free_shared_policy": {
+            "ground_truth": "0",
+            "function": "mpol_free_shared_policy",
+            "description": "free backing policy store on inode delete"
+        },
+        "mlx4_en_read_clock": {
+            "ground_truth": "0",
+            "function": "mlx4_en_read_clock",
+            "description": "mlx4 en read clock read raw cycle counter to be used by time counter"
+        },
+        "idt_ntb_link_enable": {
+            "ground_truth": "0",
+            "function": "idt_ntb_link_enable",
+            "description": "idt ntb link enable enable local port ntb link ntb api callback enable just local ntb link pcie link parameter are ignored ntb ntb device context max speed the maximum link speed expressed a pcie generation number max width the maximum link width expressed a the number of pcie lane return always zero"
+        },
+        "auxio_set_lte": {
+            "ground_truth": "0",
+            "function": "auxio_set_lte",
+            "description": "auxio set lte set link test enable tpe link detect on auxio lte on or auxio lte off"
+        },
+        "qed_ll2_alloc": {
+            "ground_truth": "0",
+            "function": "qed_ll2_alloc",
+            "description": "brief qed ll2 alloc allocates ll2 connection set param hwfn return int"
+        },
+        "ipr_copy_ucode_buffer": {
+            "ground_truth": "0",
+            "function": "ipr_copy_ucode_buffer",
+            "description": "copy user buffer to kernel buffer copy microcode image from user buffer into buffer allocated by ipr alloc ucode buffer return value on success other on failure struct ipr sglist sglist scatter gather list pointer u8 buffer buffer pointer u32 len buffer length"
+        },
+        "cpumask_test_and_set_cpu": {
+            "ground_truth": "0",
+            "function": "cpumask_test_and_set_cpu",
+            "description": "atomically test and set cpu in cpumask return if cpu is set in old bitmap of cpumask else return test and set bit wrapper for cpumasks int cpu cpu number nr cpu id struct cpumask cpumask the cpumask pointer"
+        },
+        "__get_dev_name": {
+            "ground_truth": "0",
+            "function": "__get_dev_name",
+            "description": "helper to return dev name or if dev"
+        },
+        "enable_step": {
+            "ground_truth": "0",
+            "function": "enable_step",
+            "description": "enable single or block step"
+        },
+        "pcpu_update_empty_pages": {
+            "ground_truth": "0",
+            "function": "pcpu_update_empty_pages",
+            "description": "pcpu update empty page update empty page counter this is used to keep track of the empty page now based on the premise md block cover page the hint update function recognize if block is made full or broken to calculate delta for keeping track of free page chunk chunk of interest nr nr of empty page"
+        },
+        "oxu_hcd_init": {
+            "ground_truth": "0",
+            "function": "oxu_hcd_init",
+            "description": "one time init only for memory state"
+        },
+        "ieee80211_txq_schedule_start": {
+            "ground_truth": "1",
+            "function": "ieee80211_txq_schedule_start",
+            "description": "start new scheduling round for txqs should be called before ieee80211 next txq or ieee80211 return txq the driver must not call multiple txq scheduling round concurrently struct ieee80211 hw hw pointer a obtained from ieee80211 alloc hw u8 ac ac number to acquire lock for"
+        },
+        "dm_block_manager_create": {
+            "ground_truth": "0",
+            "function": "dm_block_manager_create",
+            "description": "than char write that an individual thread hold at any one time name should be unique identifier for the block manager no longer max held per thread should be the maximum number of lock read or"
+        },
+        "pwc_get_u8_ctrl": {
+            "ground_truth": "0",
+            "function": "pwc_get_u8_ctrl",
+            "description": "control get set helper"
+        },
+        "usb_reset_and_verify_device": {
+            "ground_truth": "1",
+            "function": "usb_reset_and_verify_device",
+            "description": "perform usb port reset to reinitialize device warning do not use this routine to reset composite device one with multiple interface owned by separate driver use usb reset device instead do port reset reassign the device is address and establish it former operating configuration if the reset fails or the device is descriptor change from their value before the reset or the original configuration and altsettings cannot be restored flag will be set telling hub wq to pretend the device ha been disconnected and then re connected all driver will be unbound and the device will be re enumerated and probed all over again locking exception this routine may also be called from within an autoresume handler such usage will not conflict with other task holding the device lock because these task should always call usb autopm resume device thereby preventing any unwanted autoresume the autoresume handler is expected to have already acquired the port lock before calling this routine struct usb device udev device to reset not in suspended or notattached state if the reset succeeded enodev if the device ha been flagged for logical disconnection or some other negative error code if the reset wa not even attempted note the caller must own the device lock and the port lock the latter is taken by usb reset device for example it is safe to use usb reset device from driver probe routine after downloading new firmware for call that might not occur during probe driver should lock the device using usb lock device for reset"
+        },
+        "ixgbe_fc_autoneg_backplane": {
+            "ground_truth": "0",
+            "function": "ixgbe_fc_autoneg_backplane",
+            "description": "enable flow control ieee clause struct ixgbe hw hw pointer to hardware structure enable flow control according to ieee clause"
+        },
+        "rtc_open": {
+            "ground_truth": "0",
+            "function": "rtc_open",
+            "description": "we enforce only one user at time here with the open close"
+        },
+        "kcsan_check_write": {
+            "ground_truth": "1",
+            "function": "kcsan_check_write",
+            "description": "check regular write access for race ptr address of access size size of access"
+        },
+        "_scsih_pcie_device_remove": {
+            "ground_truth": "1",
+            "function": "_scsih_pcie_device_remove",
+            "description": "remove pcie device from list if pcie device is on the list remove it and decrement it reference count struct mpt3sas adapter ioc per adapter object struct pcie device pcie device the pcie device object this function will acquire ioc pcie device lock"
+        },
+        "_scsih_fw_event_add": {
+            "ground_truth": "1",
+            "function": "_scsih_fw_event_add",
+            "description": "insert and queue up fw event this add the firmware event object into link list then queue it up to be processed from user context struct mpt3sas adapter ioc per adapter object struct fw event work fw event object describing the event this function will acquire ioc fw event lock"
+        },
+        "ww_acquire_init": {
+            "ground_truth": "1",
+            "function": "ww_acquire_init",
+            "description": "initialize acquire context initializes an context to acquire multiple mutexes of the given class context based mutex acquiring can be done in any order whatsoever within given lock class deadlock will be detected and handled with the wait die logic mixing of context based mutex acquiring and single mutex locking can result in undetected deadlock and is so forbidden mixing different context for the same class when acquiring mutexes can also result in undetected deadlock and is hence also forbidden both type of abuse will be caught by enabling config prove locking nesting of acquire context for different class is possible subject to the usual locking rule between different lock class an acquire context must be released with ww acquire fini by the same task before the memory is freed it is recommended to allocate the context itself on the stack struct ww acquire ctx ctx acquire context to initialize struct ww class ww class class of the context"
+        },
+        "futex_lock_pi_atomic": {
+            "ground_truth": "1",
+            "function": "futex_lock_pi_atomic",
+            "description": "atomic work required to acquire pi aware futex the hb lock and futex key ref shall be held by the caller exiting is only set when the return value is ebusy if so this hold refcount on the exiting task on return and the caller need to drop it after waiting for the exit to complete u32 user uaddr the pi futex user address struct futex hash bucket hb the pi futex hash bucket union futex key key the futex key associated with uaddr and hb struct futex pi state p the pi state pointer where we store the result of the lookup struct task struct task the task to perform the atomic lock work for this will be current except in the case of requeue pi struct task struct exiting pointer to store the task pointer of the owner task which is in the middle of exiting int set waiter force setting the futex waiter bit or not ready to wait acquired the lock error"
+        },
+        "ssusb_host_enable": {
+            "ground_truth": "0",
+            "function": "ssusb_host_enable",
+            "description": "only configure port will be used later"
+        },
+        "sb1250_smp_init": {
+            "ground_truth": "0",
+            "function": "sb1250_smp_init",
+            "description": "smp init and finish on secondary cpu"
+        },
+        "lpfc_discovery_wait": {
+            "ground_truth": "0",
+            "function": "lpfc_discovery_wait",
+            "description": "wait for driver discovery to quiesce this driver call this routine specifically from lpfc vport delete to enforce synchronous execution of vport delete relative to discovery activity the lpfc vport delete routine should not return until it can reasonably guarantee that discovery ha quiesced post fdisc logo the driver must wait until it san teardown is complete and all resource recovered before allowing cleanup this routine doe not require any lock held struct lpfc vport vport the virtual port for which this call is being executed"
+        },
+        "snd_opl3_sysex": {
+            "ground_truth": "0",
+            "function": "snd_opl3_sysex",
+            "description": "receive sysex"
+        },
+        "gbefb_show_memsize": {
+            "ground_truth": "0",
+            "function": "gbefb_show_memsize",
+            "description": ""
+        },
+        "nfs4_state_protect_write": {
+            "ground_truth": "0",
+            "function": "nfs4_state_protect_write",
+            "description": "special wrapper to nfs4 state protect for write if write can use machine cred but commit cannot make sure all writes that use machine cred use nfs file sync"
+        },
+        "gfs2_ail_empty_tr": {
+            "ground_truth": "0",
+            "function": "gfs2_ail_empty_tr",
+            "description": "empty one of the ail list for transaction struct gfs2 sbd sdp undescribed struct gfs2 trans tr undescribed struct list head head undescribed"
+        },
+        "proc_flush_pid": {
+            "ground_truth": "0",
+            "function": "proc_flush_pid",
+            "description": "remove dcache entry for pid from the proc dcache this function walk list of inodes that belong to any proc filesystem that are attached to the pid and flush them from the dentry cache it is safe and reasonable to cache proc entry for task until that task exit after that they just clog up the dcache with useless entry possibly causing useful dcache entry to be flushed instead this routine is provided to flush those useless dcache entry when process is reaped note this routine is just an optimization so it doe not guarantee that no dcache entry will exist after process is reaped it just make it very unlikely that any will persist struct pid pid pid that should be flushed"
+        },
+        "_scsih_scsi_lookup_find_by_target": {
+            "ground_truth": "1",
+            "function": "_scsih_scsi_lookup_find_by_target",
+            "description": "search for matching channel id this will search for matching channel id in the scsi lookup array returning if found struct mpt3sas adapter ioc per adapter object int id target id int channel channel this function will acquire ioc scsi lookup lock"
+        },
+        "snd_hda_jack_detect_enable": {
+            "ground_truth": "0",
+            "function": "snd_hda_jack_detect_enable",
+            "description": "enable the jack detection on the given pin enable the jack detection with the default callback return zero if successful or negative error code struct hda codec codec the hda codec hda nid nid pin nid to enable jack detection int dev id pin device entry id"
+        },
+        "set_vbus": {
+            "ground_truth": "0",
+            "function": "set_vbus",
+            "description": "effective for peripheral ignored for device"
+        },
+        "ArcGetEnvironmentVariable": {
+            "ground_truth": "0",
+            "function": "ArcGetEnvironmentVariable",
+            "description": "environment variable routine"
+        },
+        "init_ov_sensor": {
+            "ground_truth": "0",
+            "function": "init_ov_sensor",
+            "description": "this doe an initial reset of an omnivision sensor and ensures that i2c is synchronized return on failure"
+        },
+        "btt_fini": {
+            "ground_truth": "0",
+            "function": "btt_fini",
+            "description": "de initialize btt de initialize block translation table on device removal struct btt btt the btt handle that wa generated by btt init might sleep"
+        },
+        "f_eeprom_wen": {
+            "ground_truth": "0",
+            "function": "f_eeprom_wen",
+            "description": "enable writes to config eeprom if supported"
+        },
+        "i2400m_dev_initialize": {
+            "ground_truth": "0",
+            "function": "i2400m_dev_initialize",
+            "description": "initialize the device once communication are ready configures the device to work the way we like it at the point of this call the device is registered with the wimax and netdev stack firmware is uploaded and we can talk to the device normally struct i2400m i2400m device descriptor if ok errno code on error"
+        },
+        "inc_deq": {
+            "ground_truth": "0",
+            "function": "inc_deq",
+            "description": "see cycle bit rule sw is the consumer for the event ring only do not make ring full of link trbs that would be dumb and this would loop"
+        },
+        "onenand_check_lock_status": {
+            "ground_truth": "1",
+            "function": "onenand_check_lock_status",
+            "description": "onenand interface check lock status param this onenand chip data structure check lock status struct onenand chip this undescribed"
+        },
+        "au1300_pinfunc_to_gpio": {
+            "ground_truth": "0",
+            "function": "au1300_pinfunc_to_gpio",
+            "description": "gpic au1300 pin management arch mips alchemy common gpioint"
+        },
+        "mpt3sas_scsih_enclosure_find_by_handle": {
+            "ground_truth": "1",
+            "function": "mpt3sas_scsih_enclosure_find_by_handle",
+            "description": "exclosure device search this search for enclosure device based on handle then return the enclosure object struct mpt3sas adapter ioc per adapter object u16 handle enclosure handle assigned by firmware calling function should acquire ioc sa device lock"
+        },
+        "vdev_init": {
+            "ground_truth": "0",
+            "function": "vdev_init",
+            "description": "initialization and module stuff"
+        },
+        "kcsan_check_read_write": {
+            "ground_truth": "1",
+            "function": "kcsan_check_read_write",
+            "description": "check regular read write access for race ptr address of access size size of access"
+        },
+        "ap_control_add_mac": {
+            "ground_truth": "0",
+            "function": "ap_control_add_mac",
+            "description": "hostap ap"
+        },
+        "startup": {
+            "ground_truth": "0",
+            "function": "startup",
+            "description": "value mean no gpio will be used for reset reset gpio should only be specified for pxa27x cpu where silicon bug prevents correct operation of the reset line if not specified the default behaviour on these cpu is to consider gpio a the ac97 reset line which is the default on most board reset gpio ac97 reset gpio normally gpio113 or gpio95 codec pdata ac97 codec platform data"
+        },
+        "__hostap_cmd_queue_free": {
+            "ground_truth": "1",
+            "function": "__hostap_cmd_queue_free",
+            "description": "free prism2 command queue entry private internal helper function for freeing prism2 command queue entry caller must have acquired local cmdlock before calling this function local info local pointer to private host ap driver data struct hostap cmd queue entry prism2 command queue entry to be freed int del req request the entry to be removed"
+        },
+        "twa_init": {
+            "ground_truth": "0",
+            "function": "twa_init",
+            "description": "this function is called on driver initialization"
+        }
+    }
+}

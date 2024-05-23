@@ -1,0 +1,484 @@
+{
+    "PR": {
+        "hinic_unregister_vf_mbox_cb": {
+            "ground_truth": "0",
+            "function": "hinic_unregister_vf_mbox_cb",
+            "description": "hinic unregister vf mbox cb unregister the mbox callback for vf"
+        },
+        "wil_brd_process": {
+            "ground_truth": "0",
+            "function": "wil_brd_process",
+            "description": "wil brd process process section from brd file return error code"
+        },
+        "read": {
+            "ground_truth": "1",
+            "function": "read",
+            "description": "readvc vp register access function soc specific"
+        },
+        "amdgpu_mm_rreg8": {
+            "ground_truth": "0",
+            "function": "amdgpu_mm_rreg8",
+            "description": "amdgpu mm rreg8 read memory mapped io register return the bit value from the offset specified"
+        },
+        "be_cmd_get_fn_privileges": {
+            "ground_truth": "1",
+            "function": "be_cmd_get_fn_privileges",
+            "description": "be cmd get fn privilegesget privilege for function"
+        },
+        "sk_capable": {
+            "ground_truth": "1",
+            "function": "sk_capable",
+            "description": "sk capable socket global capability test test to see if the opener of the socket had when the socket wa created and the current process ha the capability cap in all user namespaces"
+        },
+        "hdspm_write": {
+            "ground_truth": "0",
+            "function": "hdspm_write",
+            "description": "hdspm writewrite read to from hdspm with adresses in byte not word but only 32bit writes are allowed"
+        },
+        "tvp514x_s_frame_interval": {
+            "ground_truth": "0",
+            "function": "tvp514x_s_frame_interval",
+            "description": "tvp514x frame interval v4l2 decoder interface handler configures the decoder to use the input parameter if possible if not possible return the appropriate error code"
+        },
+        "smack_unix_may_send": {
+            "ground_truth": "0",
+            "function": "smack_unix_may_send",
+            "description": "smack unix may send smack access on uds return if subject with the smack of sock could access an object with the smack of other otherwise an error code"
+        },
+        "wait_for_dest_dir_move": {
+            "ground_truth": "0",
+            "function": "wait_for_dest_dir_move",
+            "description": "wait for dest dir move we might need to delay directory rename even when no ancestor directory in the send root with higher inode number than ours sctx cur ino wa renamed this happens when we rename directory to the old name the name in the parent root of some other unrelated directory that got it rename delayed due to some ancestor with higher number that got renamed example parent snapshot ino ino file ino ino ino send snapshot ino ino ino ino file ino here we can not rename from to without the rename of inode from to happening first which in turn depends on the rename of inode from to so the order of rename command the send stream must issue is rename from to rename from to rename from to"
+        },
+        "qeth_count_elements": {
+            "ground_truth": "0",
+            "function": "qeth_count_elements",
+            "description": "qeth count element count the number of qdio buffer element needed to transmit an skb return the number of page and thus qdio buffer element needed to map the skb is data both it linear part and paged fragment"
+        },
+        "drm_mode_equal": {
+            "ground_truth": "0",
+            "function": "drm_mode_equal",
+            "description": "drm mode equal test mode for equality check to see if mode1 and mode2 are equivalent"
+        },
+        "alarm_cancel": {
+            "ground_truth": "0",
+            "function": "alarm_cancel",
+            "description": "alarm cancel spin trying to cancel an alarm timer until it is done return if the timer wa canceled if it wa not active"
+        },
+        "set_cis_map": {
+            "ground_truth": "0",
+            "function": "set_cis_map",
+            "description": "set ci map map the card memory at card offset into virtual space if flag map attrib map the attribute space otherwise map the memory space must be called with ops mutex held"
+        },
+        "i40e_hmc_get_object_va": {
+            "ground_truth": "0",
+            "function": "i40e_hmc_get_object_va",
+            "description": "i40e hmc get object va retrieves an object is virtual address this function retrieves the object is virtual address from the object base pointer this function is used for lan queue context"
+        },
+        "__test_and_set_bit": {
+            "ground_truth": "0",
+            "function": "__test_and_set_bit",
+            "description": "test and set bit set bit and return it old value this operation is non atomic and can be reordered if two example of this operation race one can appear to succeed but actually fail you must protect multiple access with lock"
+        },
+        "vga_switcheroo_unregister_client": {
+            "ground_truth": "0",
+            "function": "vga_switcheroo_unregister_client",
+            "description": "vga switcheroo unregister client unregister client unregister client disable vga switcheroo if this is vga client gpu"
+        },
+        "radeon_atom_pick_pll": {
+            "ground_truth": "0",
+            "function": "radeon_atom_pick_pll",
+            "description": "radeon atom pick pll allocate ppll for use by the crtc return the ppll pixel pll to be used by the crtc for dp monitor single ppll can be used for all dp crtcs encoders for non dp monitor dedicated ppll must be used if particular board ha an external dp pll return atom ppll invalid to skip pll programming a there is no need to program the pll itself if we are not able to allocate pll return atom ppll invalid to skip pll programming to avoid messing up an existing monitor asic specific pll information dce kb kv ppll1 ppll2 are available for all uniphy both dp and non dp ci ppll0 ppll1 ppll2 are available for all uniphy both dp and non dp and dac dce ppll2 is only available to uniphya both dp and non dp ppll0 ppll1 are available for uniphyb both dp and non dp dce ppll0 is available to all uniphy dp only ppll1 ppll2 are available for all uniphy both dp and non dp and dac dce dcpll is available to all uniphy dp only ppll1 ppll2 are available for all uniphy both dp and non dp and dac dce ppll1 ppll2 are available for all uniphy both dp and non dp and dac"
+        },
+        "qcom_scm_cpu_power_down": {
+            "ground_truth": "0",
+            "function": "qcom_scm_cpu_power_down",
+            "description": "qcom scm cpu power down power down the cpu flag flag to flush cache this is an end point to power down cpu if there wa pending interrupt the control would return from this function otherwise the cpu jump to the warm boot entry point set for this cpu upon reset"
+        },
+        "security_port_sid": {
+            "ground_truth": "1",
+            "function": "security_port_sid",
+            "description": "security port sid obtain the sid for port"
+        },
+        "setattr_prepare": {
+            "ground_truth": "1",
+            "function": "setattr_prepare",
+            "description": "setattr prepare check if attribute change to dentry are allowed check if we are allowed to change the attribute contained in attr in the given dentry this includes the normal unix access permission check a well a check for rlimits and others the function also clear sgid bit from mode if user is not allowed to set it also file capability and ima extended attribute are cleared if attr kill priv is set should be called a the first thing in setattr implementation possibly after taking additional lock"
+        },
+        "phy_validate": {
+            "ground_truth": "0",
+            "function": "phy_validate",
+            "description": "phy validate check the phy parameter used to check that the current set of parameter can be handled by the phy implementation are free to tune the parameter passed a argument if needed by some implementation detail or constraint it will not change any actual configuration of the phy so calling it a many time a deemed fit will have no side effect"
+        },
+        "vfree": {
+            "ground_truth": "0",
+            "function": "vfree",
+            "description": "vfree release memory allocated by vmalloc free the virtually continuous memory area starting at addr a obtained from one of the vmalloc family of apis this will usually also free the physical memory underlying the virtual allocation but that memory is reference counted so it will not be freed until the last user go away if addr is null no operation is performed"
+        },
+        "i7core_udimm_check_mc_ecc_err": {
+            "ground_truth": "0",
+            "function": "i7core_udimm_check_mc_ecc_err",
+            "description": "i7core udimm check mc ecc errthis function is based on the device function register a described on intel xeon processor series datasheet volume http www intel com asset pdf datasheet pdf also available at http www arrownac com manufacturer intel nehalem datasheet v2 pdf"
+        },
+        "nfs_fattr_init_names": {
+            "ground_truth": "0",
+            "function": "nfs_fattr_init_names",
+            "description": "nfs fattr init name initialise the nfs fattr owner name group name field"
+        },
+        "scsi_eh_completed_normally": {
+            "ground_truth": "0",
+            "function": "scsi_eh_completed_normally",
+            "description": "scsi eh completed normally disposition eh cmd on return from lld"
+        },
+        "apparmor_socket_getpeername": {
+            "ground_truth": "1",
+            "function": "apparmor_socket_getpeername",
+            "description": "apparmor socket getpeername check perm before getting remote address"
+        },
+        "igb_read_phy_reg_mdic": {
+            "ground_truth": "0",
+            "function": "igb_read_phy_reg_mdic",
+            "description": "igb read phy reg mdic read mdi control register"
+        },
+        "ishtp_get_hid_descriptor": {
+            "ground_truth": "0",
+            "function": "ishtp_get_hid_descriptor",
+            "description": "ishtp get hid descriptor get hid descriptor helper function to send request to firmware get hid descriptor of device"
+        },
+        "nfs3_decode_dirent": {
+            "ground_truth": "0",
+            "function": "nfs3_decode_dirent",
+            "description": "nfs3 decode dirent decode single nfsv3 directory entry stored in the local page cache return zero if successful otherwise negative errno value is returned this function is not invoked during readdir reply decoding but rather whenever an application invokes the getdents system call on directory already in our cache entry3 struct entry3 fileid3 fileid filename3 name cookie3 cookie fhandle3 filehandle post op attr3 attribute entry3 nextentry entryplus3 struct entryplus3 fileid3 fileid filename3 name cookie3 cookie post op attr name attribute post op fh3 name handle entryplus3 nextentry"
+        },
+        "__cpcmd": {
+            "ground_truth": "0",
+            "function": "__cpcmd",
+            "description": "cpcmd cpcmd ha some restriction over cpcmd cpcmd is unlocked and therefore not smp safe"
+        },
+        "security_genfs_sid": {
+            "ground_truth": "1",
+            "function": "security_genfs_sid",
+            "description": "security genf sid obtain sid for file in filesystem acquire policy rwlock before calling security genf sid and release it afterward"
+        },
+        "mceusb_set_rx_carrier_report": {
+            "ground_truth": "0",
+            "function": "mceusb_set_rx_carrier_report",
+            "description": "mceusb set rx carrier report enable disable receiver carrier frequency pas through reporting only the short range receiver ha carrier frequency measuring capability implicitly select this receiver when enabling carrier frequency reporting"
+        },
+        "i40e_get_link_speed": {
+            "ground_truth": "0",
+            "function": "i40e_get_link_speed",
+            "description": "i40e get link speed return link speed for the interface"
+        },
+        "cryp_wait_until_done": {
+            "ground_truth": "0",
+            "function": "cryp_wait_until_done",
+            "description": "cryp wait until done ericsson sa author shujuan chen for st ericsson author jonas linde for st ericsson author niklas hernaeus for st ericsson author joakim bech for st ericsson author berne hebark for st ericsson"
+        },
+        "d_find_any_alias": {
+            "ground_truth": "0",
+            "function": "d_find_any_alias",
+            "description": "find any alias find any alias for given inode if any alias exist for the given inode take and return reference for one of them if no alias exist return null"
+        },
+        "igc_ptp_get_ts_config": {
+            "ground_truth": "0",
+            "function": "igc_ptp_get_ts_config",
+            "description": "igc ptp get t config get hardware time stamping config get the hwtstamp config setting to return to the user rather than attempt to deconstruct the setting from the register just return shadow copy of the last known setting"
+        },
+        "check_memory_region": {
+            "ground_truth": "0",
+            "function": "check_memory_region",
+            "description": "check memory region check memory region and report if invalid access"
+        },
+        "genwqe_pci_setup": {
+            "ground_truth": "0",
+            "function": "genwqe_pci_setup",
+            "description": "genwqe pci setup allocate pcie related resource for our card"
+        },
+        "scsicam_bios_param": {
+            "ground_truth": "0",
+            "function": "scsicam_bios_param",
+            "description": "scsicam bios param determine geometry of disk in cylinder head sector determine the bios mapping geometry used for drive in scsi cam system storing the result in ip a required by the hdio getgeo ioctl"
+        },
+        "__kcsan_check_access": {
+            "ground_truth": "1",
+            "function": "__kcsan_check_access",
+            "description": "kcsan check access check generic access for race"
+        },
+        "tomoyo_environ": {
+            "ground_truth": "1",
+            "function": "tomoyo_environ",
+            "description": "tomoyo environ check permission for environment variable name return on success negative value otherwise"
+        },
+        "parport_write": {
+            "ground_truth": "0",
+            "function": "parport_write",
+            "description": "parport write write block of data to parallel port"
+        },
+        "__ffs": {
+            "ground_truth": "0",
+            "function": "__ffs",
+            "description": "ffs find first bit in word undefined if no bit exists so code should check against first"
+        },
+        "__device_links_queue_sync_state": {
+            "ground_truth": "0",
+            "function": "__device_links_queue_sync_state",
+            "description": "device link queue sync state queue device for sync state callback queue device for sync state callback when the device link write lock is not held this allows the sync state execution flow to use device link apis the caller must ensure this function is called with device link write lock held this function doe get device to make sure the device is not freed while on this list so the caller must also ensure that device link flush sync list is called a soon a the caller release device link write lock this is necessary to make sure the sync state is called in timely fashion and the put device is called on this device"
+        },
+        "qlogicfas408_detect": {
+            "ground_truth": "0",
+            "function": "qlogicfas408_detect",
+            "description": "detect check if this is qlogic fa"
+        },
+        "tomoyo_socket_listen_permission": {
+            "ground_truth": "1",
+            "function": "tomoyo_socket_listen_permission",
+            "description": "tomoyo socket listen permission check permission for listening socket return on success negative value otherwise"
+        },
+        "cti_map_trigger": {
+            "ground_truth": "0",
+            "function": "cti_map_trigger",
+            "description": "cti map trigger use the chan to map trig in to trig out this function map one trigger in of trig in to one trigger out of trig out using the channel chan"
+        },
+        "netlbl_unlhsh_hash": {
+            "ground_truth": "0",
+            "function": "netlbl_unlhsh_hash",
+            "description": "netlbl unlhsh hash hashing function for the hash table this is the hashing function for the unlabeled hash table it return the bucket number for the given device interface the caller is responsible for ensuring that the hash table is protected with either rcu read lock or the hash table lock"
+        },
+        "security_read_policy": {
+            "ground_truth": "1",
+            "function": "security_read_policy",
+            "description": "security read policy read the policy"
+        },
+        "pcie_update_aspm_capable": {
+            "ground_truth": "1",
+            "function": "pcie_update_aspm_capable",
+            "description": "pcie update aspm capablerecheck latency and update aspm capable for link under the root"
+        },
+        "tomoyo_socket_bind_permission": {
+            "ground_truth": "1",
+            "function": "tomoyo_socket_bind_permission",
+            "description": "tomoyo socket bind permission check permission for setting the local address of socket return on success negative value otherwise"
+        },
+        "textsearch_prepare": {
+            "ground_truth": "0",
+            "function": "textsearch_prepare",
+            "description": "textsearch prepare prepare search look up the search algorithm module and creates new textsearch configuration for the specified pattern return new textsearch configuration according to the specified parameter or err ptr if zero length pattern is passed this function return einval note the format of the pattern may not be compatible between the various search algorithm"
+        },
+        "sugov_iowait_reset": {
+            "ground_truth": "0",
+            "function": "sugov_iowait_reset",
+            "description": "sugov iowait reset reset the io boost status of cpu the io wait boost of task is disabled after tick since the last update of cpu if new io wait boost is requested after more then tick then we enable the boost starting from iowait boost min which improves energy efficiency by ignoring sporadic wakeups from io"
+        },
+        "keyctl_get_keyring_ID": {
+            "ground_truth": "1",
+            "function": "keyctl_get_keyring_ID",
+            "description": "keyctl get keyring id get the id of the specified process keyring the requested keyring must have search permission to be found if successful the id of the requested keyring will be returned"
+        },
+        "fsmc_nand_disable": {
+            "ground_truth": "0",
+            "function": "fsmc_nand_disable",
+            "description": "fsmc nand disable disables the nand bank"
+        },
+        "igc_configure_rx_ring": {
+            "ground_truth": "0",
+            "function": "igc_configure_rx_ring",
+            "description": "igc configure rx ring configure receive ring after reset configure the rx unit of the mac after reset"
+        },
+        "__ppc440spe_adma_slot_cleanup": {
+            "ground_truth": "0",
+            "function": "__ppc440spe_adma_slot_cleanup",
+            "description": "ppc440spe adma slot cleanup this is the common clean up routine which run through the channel cdbs list until reach the descriptor currently processed when routine determines that all cdbs of group are completed then corresponding callback if any are called and slot are freed"
+        },
+        "pseries_get_cpu_char": {
+            "ground_truth": "0",
+            "function": "pseries_get_cpu_char",
+            "description": "pseries get cpu char these function check whether the underlying hardware is safe against attack based on observing the effect of speculatively executed instruction and whether it supply instruction for use in workarounds the information come from firmware either via the device tree on powernv platform or from an hcall on pseries platform"
+        },
+        "clear_nlink": {
+            "ground_truth": "0",
+            "function": "clear_nlink",
+            "description": "clear nlink directly zero an inode is link count this is low level filesystem helper to replace any direct filesystem manipulation of nlink see drop nlink for why we care about nlink hitting zero"
+        },
+        "tomoyo_socket_sendmsg": {
+            "ground_truth": "1",
+            "function": "tomoyo_socket_sendmsg",
+            "description": "tomoyo socket sendmsg check permission for sendmsg return on success negative value otherwise"
+        },
+        "goodix_configure_dev": {
+            "ground_truth": "0",
+            "function": "goodix_configure_dev",
+            "description": "goodix configure dev finish device initialization must be called from probe to finish initialization of the device contains the common initialization code for both device that declare gpio pin and device that do not it is either called directly from probe or from request firmware wait callback"
+        },
+        "nlm_privileged_requester": {
+            "ground_truth": "1",
+            "function": "nlm_privileged_requester",
+            "description": "nlm privileged requester ensure incoming request are from local privileged caller"
+        },
+        "ohci_hcd_omap_remove": {
+            "ground_truth": "0",
+            "function": "ohci_hcd_omap_remove",
+            "description": "ohci hcd omap remove shutdown processing for omap based hcds revers the effect of ohci hcd omap probe first invoking the hcd is stop method it is always called from thread context normally rmmod apmd or something similar"
+        },
+        "tomoyo_mount_acl": {
+            "ground_truth": "1",
+            "function": "tomoyo_mount_acl",
+            "description": "tomoyo mount acl check permission for mount operation return on success negative value otherwise caller hold tomoyo read lock"
+        },
+        "is_cmd_valid": {
+            "ground_truth": "0",
+            "function": "is_cmd_valid",
+            "description": "is cmd valid do sanity check on the input args to dimm control function and return if valid validation of pdsm payload happens later in papr scm service pdsm"
+        },
+        "ata_is_port": {
+            "ground_truth": "0",
+            "function": "ata_is_port",
+            "description": "ata is port check if struct device represents ata port"
+        },
+        "mpt3sas_base_initialize_callback_handler": {
+            "ground_truth": "0",
+            "function": "mpt3sas_base_initialize_callback_handler",
+            "description": "mpt3sas base initialize callback handler initialize the interrupt callback handler"
+        },
+        "cxlflash_disk_clone": {
+            "ground_truth": "0",
+            "function": "cxlflash_disk_clone",
+            "description": "cxlflash disk clone clone context by making snapshot of another this routine effectively performs cxlflash disk open operation for each in use virtual resource in the source context note that the destination context must be in pristine state and cannot have any resource handle open at the time of the clone"
+        },
+        "security_change_sid": {
+            "ground_truth": "1",
+            "function": "security_change_sid",
+            "description": "security change sid compute the sid for object relabeling compute sid to use for relabeling an object of class tclass based on sid pair ssid tsid return einval if any of the parameter are invalid enomem if insufficient memory is available or if the sid wa computed successfully"
+        },
+        "pids_can_fork": {
+            "ground_truth": "0",
+            "function": "pids_can_fork",
+            "description": "pid can fork task cs check true in pid can fork and pid cancel fork relies on cgroup threadgroup change begin held by the copy process"
+        },
+        "e1000_poll_for_ack": {
+            "ground_truth": "0",
+            "function": "e1000_poll_for_ack",
+            "description": "e1000 poll for ack wait for message acknowledgment"
+        },
+        "unregister_syscore_ops": {
+            "ground_truth": "0",
+            "function": "unregister_syscore_ops",
+            "description": "unregister syscore ops unregister set of system core operation"
+        },
+        "ice_deinit_hw": {
+            "ground_truth": "0",
+            "function": "ice_deinit_hw",
+            "description": "ice deinit hw unroll initialization operation done by ice init hw this should be called only during nominal operation not a result of ice init hw failing since ice init hw will take care of unrolling applicable initialization if it fails for any reason"
+        },
+        "mei_me_cl_ver": {
+            "ground_truth": "0",
+            "function": "mei_me_cl_ver",
+            "description": "mei me cl ver return me client protocol version"
+        },
+        "acpi_fadt_sanity_check": {
+            "ground_truth": "0",
+            "function": "acpi_fadt_sanity_check",
+            "description": "acpi fadt sanity check acpi fadt sanity check check fadt presence and carry out sanity check on it"
+        },
+        "genwqe_write_vreg": {
+            "ground_truth": "0",
+            "function": "genwqe_write_vreg",
+            "description": "genwqe write vreg write register in virtual window note these register are only accessible to the pf through the vf window it is not intended for the vf to access"
+        },
+        "rio_std_route_clr_table": {
+            "ground_truth": "0",
+            "function": "rio_std_route_clr_table",
+            "description": "rio std route clr table clear swotch route table using standard register defined in rio specification rev"
+        },
+        "cpuset_task_status_allowed": {
+            "ground_truth": "0",
+            "function": "cpuset_task_status_allowed",
+            "description": "cpuset task status alloweddisplay task mem allowed in proc status file"
+        },
+        "xfs_ioctl_setattr_get_trans": {
+            "ground_truth": "1",
+            "function": "xfs_ioctl_setattr_get_trans",
+            "description": "xfs ioctl setattr get trans set up the transaction structure for the setattr operation checking that we have permission to do so on success return clean transaction and the inode locked exclusively ready for further operation specific check on failure return an error without modifying or locking the inode"
+        },
+        "zfcp_erp_notify": {
+            "ground_truth": "0",
+            "function": "zfcp_erp_notify",
+            "description": "zfcp erp notify trigger erp action"
+        },
+        "mark_clean": {
+            "ground_truth": "0",
+            "function": "mark_clean",
+            "description": "mark clean cache coherent any complete page that were written via dma can be marked a clean so that lazy mmu prot update doe not have to flush them when they get mapped into an executable vm area"
+        },
+        "xs_udp_data_read_skb": {
+            "ground_truth": "0",
+            "function": "xs_udp_data_read_skb",
+            "description": "x udp data read skb receive callback for udp socket"
+        },
+        "xfrm_state_ok": {
+            "ground_truth": "0",
+            "function": "xfrm_state_ok",
+            "description": "xfrm state okwhen skb is transformed back to it native form we have to check policy restriction at the moment we make this in maximally stupid way shame on me of course connected socket must have policy cached at them"
+        },
+        "qcm_process_device": {
+            "ground_truth": "0",
+            "function": "qcm_process_device",
+            "description": "qcm process devicesupport asic specific packet format for pm4 packet"
+        },
+        "ixgbevf_reuse_rx_page": {
+            "ground_truth": "0",
+            "function": "ixgbevf_reuse_rx_page",
+            "description": "ixgbevf reuse rx page page flip buffer and store it back on the ring synchronizes page for reuse by the adapter"
+        },
+        "i40e_tx_timeout": {
+            "ground_truth": "0",
+            "function": "i40e_tx_timeout",
+            "description": "i40e tx timeout respond to tx hang if any port ha noticed tx timeout it is likely that the whole device is munged not just the one netdev port so go for the full reset"
+        },
+        "nfp_net_irqs_alloc": {
+            "ground_truth": "0",
+            "function": "nfp_net_irqs_alloc",
+            "description": "nfp net irqs alloc allocates msi irqs"
+        },
+        "yenta_fixup_parent_bridge": {
+            "ground_truth": "0",
+            "function": "yenta_fixup_parent_bridge",
+            "description": "yenta fixup parent bridge fix subordinate bus of the parent bridge check if device on the bus which the cardbus bridge bridge to would be invisible during pci scan because of misconfigured subordinate number of the parent brige some bioses seem to be too lazy to set it right doe the fixup carefully by checking how far it can go without conflict see http bugzilla kernel org show bug cgi id for more information"
+        },
+        "pv_init": {
+            "ground_truth": "0",
+            "function": "pv_init",
+            "description": "pv initprotected virtualization"
+        },
+        "ice_vf_post_vsi_rebuild": {
+            "ground_truth": "0",
+            "function": "ice_vf_post_vsi_rebuild",
+            "description": "ice vf post vsi rebuild task to do after the vf is vsi have been rebuilt"
+        },
+        "fcoe_fip_vlan_recv": {
+            "ground_truth": "0",
+            "function": "fcoe_fip_vlan_recv",
+            "description": "fcoe fip vlan recv handler for received fip vlan discovery frame"
+        },
+        "ext4_inc_count": {
+            "ground_truth": "0",
+            "function": "ext4_inc_count",
+            "description": "ext4 inc count set directory link count to if nlinks ext4 link max or if nlinks since this indicates that nlinks count wa previously to avoid overflowing the bit link count field on disk directory with nlink mean that subdirectory link count are not being maintained accurately the caller ha already checked for nlink overflow in case the dir link feature is not enabled and returned emlink the is dx check is proxy for checking isdir inode since the inode index feature will not be set on regular file and to avoid creating huge slow non htree directory"
+        },
+        "bdx_open": {
+            "ground_truth": "0",
+            "function": "bdx_open",
+            "description": "bdx open called when network interface is made active return on success negative value on failure the open entry point is called when network interface is made active by the system iff up at this point all resource needed for transmit and receive operation are allocated the interrupt handler is registered with the o the watchdog timer is started and the stack is notified that the interface is ready"
+        },
+        "system_trusted_keyring_init": {
+            "ground_truth": "0",
+            "function": "system_trusted_keyring_init",
+            "description": "system trusted keyring init create the trusted keyrings"
+        },
+        "host1x_register": {
+            "ground_truth": "0",
+            "function": "host1x_register",
+            "description": "host1x register register host1x controller the host1x controller driver us this to register host1x controller with the infrastructure note that all tegra soc generation have only ever come with single host1x instance so this function is somewhat academic"
+        }
+    }
+}
